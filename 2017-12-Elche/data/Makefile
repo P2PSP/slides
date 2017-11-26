@@ -6,7 +6,7 @@ default:	all
 %.fig:	%.gpt
 	gnuplot $*.gpt
 
-## .fig -> .pdf
+## .fig -> .svg
 %.svg:	%.fig
 	fig2dev -L pstex $*.fig > tmp.eps
 	fig2dev -L pstex_t -f sf -p tmp.eps $< > tmp.tex
@@ -19,7 +19,7 @@ default:	all
 \\begin{document} \
 \\pagestyle{empty} \
 \\thispagestyle{empty} \
-\\resizebox{1.0\\textwidth}{!}{\\input{tmp}} \
+\\input{tmp} \
 \\end{document} \
 EOF
 	mv article.dvi $*.dvi
