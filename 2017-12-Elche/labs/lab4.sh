@@ -10,7 +10,7 @@ echo "Run a second Icecast2 server listening at port 9000"
 sleep 1
 
 echo "Feed all icecast servers (2 movies for 8000 and 1 for 9000)"
-cvlc ~/Videos/LBig_Buck_Bunny_small.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/BBBs.ogv}" --loop &
+cvlc ~/Videos/LBig_Buck_Bunny_small.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/BBB.ogv}" --loop &
 sleep 1
 cvlc ~/Videos/Lchi84_14_m4.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/chi.ogv}" --loop &
 sleep 1
