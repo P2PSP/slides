@@ -10,11 +10,11 @@ echo "Run a second Icecast2 server listening at port 9000"
 sleep 1
 
 echo "Feed all icecast servers (2 movies for 8000 and 1 for 9000)"
-cvlc ~/Videos/Big_Buck_Bunny_small.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/BBBs.ogv}" --loop &
+cvlc ~/Videos/LBig_Buck_Bunny_small.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/BBBs.ogv}" --loop &
 sleep 1
-cvlc ~/Videos/chi84_14_m4.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/LLL.ogv}" --loop &
+cvlc ~/Videos/Lchi84_14_m4.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/chi.ogv}" --loop &
 sleep 1
-cvlc ~/Videos/hcil2003_01.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:9000/hcil.ogv}" --loop &
+cvlc ~/Videos/Lhcil2003_01.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:9000/hcil.ogv}" --loop &
 sleep 1
 
 #echo "Check the infrastructure"
@@ -24,7 +24,7 @@ sleep 1
 #sleep 5
 
 echo "Run a listener connected to the master Icecast server"
-cvlc http://localhost:8000/BBBs.ogv 2> /dev/null &
+cvlc http://localhost:8000/BBB.ogv 2> /dev/null &
 sleep 1
 
 echo "Run a listener connected to the relay Icecast server"
@@ -36,7 +36,7 @@ xterm -e "~/P2PSP/p2psp-console/bin/splitter --source_addr 127.0.0.1 --source_po
 sleep 1
 xterm -e "~/P2PSP/p2psp-console/bin/monitor --splitter_addr 127.0.0.1 --splitter_port 8001" &
 sleep 1
-cvlc http://localhost:9999 & # The monitor
+cvlc http://localhost:9999 & # Monitor's player
 sleep 1
 xterm -e "~/P2PSP/p2psp-console/bin/peer --splitter_addr 127.0.0.1 --splitter_port 8001 --player_port 10000" &
 sleep 1
