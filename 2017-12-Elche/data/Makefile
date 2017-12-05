@@ -65,8 +65,8 @@ EOF
 	rm $*_.log
 	pdf2svg $*.pdf $*.svg
 
-%.png:	%.svg
-	convert -density 100 $*.svg $*.png
+%.png:	%.pdf
+	convert -density 300 $*.pdf $*.png
 
 # Original files
 FIGs := $(wildcard *.fig)
