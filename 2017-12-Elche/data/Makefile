@@ -16,6 +16,7 @@ default:	all
 \\usepackage{amsmath} \
 \\usepackage{amssymb} \
 \\usepackage{color} \
+\\usepackage{cancel} \
 \\begin{document} \
 \\pagestyle{empty} \
 \\thispagestyle{empty} \
