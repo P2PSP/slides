@@ -32,7 +32,7 @@ cvlc http://localhost:9000/hcil.ogv 2> /dev/null &
 sleep 1
 
 echo "Create a P2PSP team"
-xterm -e "~/P2PSP/p2psp-console/bin/splitter --source_addr 127.0.0.1 --source_port 8000 --splitter_port 8001 --channel BBBs.ogv --header_size 30000" &
+xterm -e "~/P2PSP/p2psp-console/bin/splitter --source_addr 127.0.0.1 --source_port 8000 --splitter_port 8001 --channel BBB.ogv --header_size 30000" &
 sleep 1
 xterm -e "~/P2PSP/p2psp-console/bin/monitor --splitter_addr 127.0.0.1 --splitter_port 8001" &
 sleep 1
