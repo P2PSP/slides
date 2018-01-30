@@ -46,7 +46,7 @@
    
   <?php
    foreach (scandir(".") as $dir) {
-        if ( ! in_array($dir, ['.', '..','images','.cache','index.php'])) {
+        if ( substr($dir, 0,1) === "2") {
   ?>
 		<a href="<?php echo $dir.'/index.html'; ?>">
 		<div class="slide">
