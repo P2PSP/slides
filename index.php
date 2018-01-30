@@ -27,7 +27,7 @@
 	width: 90%;
 	}
       .slide{
-	width: 420px;
+	width: 320px;
 	text-align: center;
 	float: left;
       }
@@ -50,7 +50,7 @@
   ?>
 		<a href="<?php echo $dir.'/index.html'; ?>">
 		<div class="slide">
-		<img height="300px" width="400px" src="<?php echo $dir.'/snapshot.png'; ?>">
+		<img width="300px" src="<?php echo $dir.'/snapshot.png'; ?>">
 		<h3><?php echo $dir ;?></h3>
 		</div>
 		</a>
