@@ -39,6 +39,7 @@
     <div class="title">
     	<h1>P2PSP Slides</h1>
 	<h2>Enjoy the P2PSP slides on the Web</h2>
+	<p>Get the <a href="https://github.com/P2PSP/slides">source code</a>!</p>
     </div>
   </div>
   <hr>

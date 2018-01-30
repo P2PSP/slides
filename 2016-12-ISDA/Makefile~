@@ -1,0 +1,9 @@
+publish:	snapshot.png
+	rsync -avz * slides@5.196.10.234:2016-12-ISDA
+
+snapshot.png:	index.html
+	phantomjs ../rasterize.js index.html snapshot.png
+
+clean:
+	rm -r snapshot.png
+

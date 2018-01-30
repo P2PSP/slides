@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">    
+    <title>Pollution attacks detection in the P2PSP live streaming system</title>    
+    <link rel="stylesheet" href="./reveal.min.css">
+    <style>
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.3); 
+  height: 10px; 
+}
+
+.reveal .progress span {
+  background: #380B61;
+}
+
+.reveal .selection{
+	background: #380B61;
+}
+.reveal h1 {color: #380B61;}
+.reveal h2 {text-align: justify;}
+.reveal .slide-number{font-size: 36px;}
+
+.visible{height:auto;}
+.invisible{height:0;}
+
+::selection{ background: #CCC;}
+
+    </style>
+  </head>
+  
+  <body>
+    
+    <div class="reveal">      
+      <div class="slides">
+	  
+	<section>
+
+		<h1>Pollution attacks detection in the P2PSP live streaming <br/> system</h1> <br />
+		<h2 style="text-align:center;">Cristóbal Medina-López, 
+						L.G. Casado and	
+		 				Vicente González-Ruiz</h2><br /><br />
+					
+		<img src="images/sal.png" alt="Feder" height="120">
+		<h3> 
+			<b>Department of Informatics</b> <br /> 
+			University of Almería <br /> 
+			Spain 
+		</h3><br />
+
+		<img src="images/feder.png" alt="Feder" height="70">
+		<img src="images/gobierno.jpg" alt="Gobierno de España" height="70">
+		<img src="images/junta.png" alt="Junta de Andalucia" height="70">
+		<img src="images/ceia3.jpg" alt="CEIA3" height="70">
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="70" />
+
+	</section>
+
+	<section>
+
+		<h1>Follow the slideshow on the Web</h1><br />
+		<h2><center>URL of these Slides:<br /><br />
+		<a style="color: red; text-align:center;" href="http://slides.p2psp.org/CISIS15/">http://slides.p2psp.org/CISIS15/</a></li></h2> <br /><br />
+		<img src="images/diapositivas.png" alt="Diapositivas" height="250" />
+
+	</section>
+	
+	
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2><li>P2PSP</li></h2>
+		<h2><li>Pollution Attacks</li></h2>
+		<h2><li>Proposals</center></li></h2>
+                <ul>
+		<h2><li>STrPe</li></h2>
+		<h2><li>STrPe-DS</li></h2>
+                </ul>
+		<h2><li>Expelling Peers</li></h2>
+                <ul>
+		<h2><li>Non-Repudiation Methods</li></h2>
+		<h2><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2><li>P2PSP</li></h2>
+		<h2 style="color:#CCC;"><li>Pollution Attacks</li></h2>
+		<h2 style="color:#CCC;"><li>Proposals</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>STrPe</li></h2>
+		<h2 style="color:#CCC;"><li>STrPe-DS</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Expelling Peers</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>Non-Repudiation Methods</li></h2>
+		<h2 style="color:#CCC;"><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2 style="color:#CCC;"><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="150" /><br />
+		<ul>
+			<li class="fragment">
+				<h2><a href="http://www.p2psp.org/en/">P2PSP (Peer to Peer Straightforward Protocol)</a> is an open application-layer protocol for the real-time
+			  	streaming of media content over a peer-to-peer overlay.</h2>
+			</li>
+			<br />
+			<li class="fragment">	
+				<h2>P2PSP is based on a push-based fully connected mesh scheme where every peer is connected with each other.</h2>
+			</li>
+			<br />
+			<li class="fragment">
+				<h2>An open-source (<a href="https://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>) implementation is available on <a href="https://github.com/p2psp">
+			  	GitHub</a>.<br /><br />
+				<center><a href="http://www.google-melange.com/gsoc/org2/google/gsoc2015/p2psp"><img src="images/gsoc.jpg" height="100px"/><br /><span style="font-size:x-large;"> P2PSP.org in Google Summer of Code </span></a></center>
+				</h2>
+			</li>
+	    </ul>
+
+	</section>
+
+	<section>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+	
+ 	</section>
+
+	<!-- animation --> 
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-1.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+	
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-2.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-2-2.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-2-3.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-2-4.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-3.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div ><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div ><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		<div ><h3><b>3.</b> Each peer sends its chunks to each other in order to ensure that everyone has the whole stream.</h3></div><br />
+	
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-4.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		<div><h3><b>3.</b> Each peer sends its chunks to each other in order to ensure that everyone has the whole stream.</h3></div><br />
+		<div><h3><b>4.</b> Peers send the stream to the player.</h3></div>
+ 	</section>
+	<!-- end of animation --> 
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<h2><li>Pollution Attacks</li></h2>
+		<h2 style="color:#CCC;"><li>Proposals</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>STrPe</li></h2>
+		<h2 style="color:#CCC;"><li>STrPe-DS</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Expelling Peers</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>Non-Repudiation Methods</li></h2>
+		<h2 style="color:#CCC;"><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2 style="color:#CCC;"><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2>Pollution attacks consist of a peer or a set of peers modifying the content of the stream. Can be done in different ways.</h2><br />
+
+	</section>
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2><strong>Persistent attack</strong>: an attacker poisons every chunk received from the splitter and sends them to the entire team.</h2><br />
+			<div>
+				<img src="images/persistent-attack.svg" alt="Persistent Attack" height="500" style="margin:5px"/> <br />
+</div>
+
+	</section>
+
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2><strong>On-Off attack</strong>: the attacker only poisons some chunks but not others.</h2><br />
+		<div>
+			<img src="images/on-off-attack.svg" alt="On-Off Attack" height="500" style="margin:5px"/> <br />
+
+</div>		
+
+	</section>
+
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2><strong>Selective attack</strong>: poisoning chunks intended for only one peer or a small subset of peers.</h2><br />
+
+			<div>
+			<img src="images/selective-attack.svg" alt="Selective Attack" height="500" style="margin:5px"/> <br />
+
+</div>	
+	</section>
+
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2><strong>Collaborative attack</strong>: several attackers may collaborate to produce Selective and On-off attacks on a large set of peers.</h2><br />
+
+			<div>
+			<img src="images/collaborative-attack.svg" alt="Collaborative Attack" height="500" style="margin:5px"/> <br />
+
+</div>	
+
+	</section>
+
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2><strong>Hand-wash attack</strong>: leaving the team and returning to continue the attack with another alias.</h2><br />
+
+			<div>
+			<img src="images/hand-wash-attack.svg" alt="Hand-wash Attack" height="500" style="margin:5px"/> <br />
+
+</div>	
+	</section>
+
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2><strong>Bad-mouth attack</strong>: blaming other regular peers of sending poisoned chunks or not sending chunks.</h2><br />
+
+			<div>
+			<img src="images/bad-mouth-attack.svg" alt="Bad-mouth Attack" height="500" style="margin:5px"/> <br />
+
+</div>	
+
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<h2 style="color:#CCC;"><li>Pollution Attacks</li></h2>
+		<h2><li>Proposals</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>STrPe</li></h2>
+		<h2 style="color:#CCC;"><li>STrPe-DS</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Expelling Peers</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>Non-Repudiation Methods</li></h2>
+		<h2 style="color:#CCC;"><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2 style="color:#CCC;"><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>Proposals</h1><br />
+		<h2>We present two different strategies aiming to mitigate the impact of pollution and related attacks by combining trust management, hashing/signatures and trusted peers.</h2><br />
+		<br />		
+
+		<div style="float:left; width:50%;" class="fragment">
+			<h3>1. Strategy based on Trusted Peers. <br /> (STrPe)</h3> <br />
+			<img src="images/tp.png" alt="Trusted Peers" height="200" /><br />
+		</div>
+		<div style="float:left; width:50%;"  class="fragment">
+			<h3>2. Strategy based on Trusted Peers and Digital Signatures. <br /> (STrPe-DS)</h3> <br />
+			<img src="images/tpds.png" alt="Trusted Peers and Digital Signatures" height="200" /><br />
+		</div>
+
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<h2 style="color:#CCC;"><li>Pollution Attacks</li></h2>
+		<h2><li>Proposals</li></h2>
+                <ul>
+		<h2><li>STrPe</li></h2>
+		<h2 style="color:#CCC;"><li>STrPe-DS</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Expelling Peers</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>Non-Repudiation Methods</li></h2>
+		<h2 style="color:#CCC;"><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2 style="color:#CCC;"><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+  		
+		<h1>Strategy based on Trusted Peers</h1><br />
+		<h2><center>How does it work?</li></h2> <br />
+		<img id="strpe" src="images/strpe.svg" alt="STrPe" align="left" height="480" style="margin:5px"/> <br />
+ 	</section>
+
+	<!-- animation -->
+	<section data-transition=none>
+  		
+		<h1>Strategy based on Trusted Peers.</h1><br />
+		<h2><center>How does it work?</li></h2> <br />
+		<img  src="images/strpe-1.svg" alt="STrPe" align="left" height="480" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> Only the splitter knows who the TPs in the team are.</h3></div><br />
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>Strategy based on Trusted Peers.</h1><br />
+		<h2><center>How does it work?</li></h2> <br />
+		<img  src="images/strpe-2.svg" alt="STrPe" align="left" height="480" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> Only the splitter knows who the TPs in the team are.</h3></div><br />
+		<div><h3><b>2.</b> Each TP creates a hash for each chunk, including the chunk number and the endpoint of the source and sends it to the splitter.</h3></div><br />
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>Strategy based on Trusted Peers.</h1><br />
+		<h2><center>How does it work?</li></h2> <br />
+		<img  src="images/strpe-3.svg" alt="STrPe" align="left" height="480" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> Only the splitter knows who the TPs in the team are.</h3></div><br />
+		<div><h3><b>2.</b> Each TP creates a hash for each chunk, including the chunk number and the endpoint of the source and sends it to the splitter.</h3></div><br />
+		<div><h3><b>3.</b> The Splitter checks whether the chunks have been altered.</h3></div><br />
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>Strategy based on Trusted Peers.</h1><br />
+		<h2><center>How does it work?</li></h2> <br />
+		<img  src="images/strpe-4.svg" alt="STrPe" align="left" height="480" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> Only the splitter knows who the TPs in the team are.</h3></div><br />
+		<div><h3><b>2.</b> Each TP creates a hash for each chunk, including the chunk number and the endpoint of the source and sends it to the splitter.</h3></div><br />
+		<div><h3><b>3.</b> The Splitter checks whether the chunks have been altered.</h3></div><br />
+		<div><h3><b>4.</b> The splitter knows the peer in charge of relaying a given chunk.</h3></div><br />
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>Strategy based on Trusted Peers.</h1><br />
+		<h2><center>How does it work?</li></h2> <br />
+		<img  src="images/strpe-5.svg" alt="STrPe" align="left" height="480" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> Only the splitter knows who the TPs in the team are.</h3></div><br />
+		<div><h3><b>2.</b> Each TP creates a hash for each chunk, including the chunk number and the endpoint of the source and sends it to the splitter.</h3></div><br />
+		<div><h3><b>3.</b> The Splitter checks whether the chunks have been altered.</h3></div><br />
+		<div><h3><b>4.</b> The splitter knows the peer in charge of relaying a given chunk.</h3></div><br />
+		<div><h3><b>5.</b> The attacker is expelled from the team.</h3></div><br />
+ 	</section>
+	<!-- end of animation -->
+
+	<section>
+
+		<h1>Strategy based on Trusted Peers.</h1><br />
+		<h2><center><b>Problems:</b></li></h2><br />
+		<ul>
+			<li class="fragment">
+				<h2>Peers don't know if they are being poisoned.</h2>
+			</li>
+			<br />
+			<li class="fragment">
+				<h2>If an attacker knows who the trusted peers are the system is completely vulnerable to <span style="color:red;">Selective Attacks</span>.</h2>
+			</li>
+			<br />
+	    </ul>
+
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<h2 style="color:#CCC;"><li>Pollution Attacks</li></h2>
+		<h2><li>Proposals</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>STrPe</li></h2>
+		<h2><li>STrPe-DS</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Expelling Peers</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>Non-Repudiation Methods</li></h2>
+		<h2 style="color:#CCC;"><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2 style="color:#CCC;"><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds.svg" alt="STrPe-DS" align="left" height="540" style="margin:5px"/> <br />		
+
+
+	</section>
+	<!-- animation -->
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-1.svg" alt="STrPe-DS" align="left" height="540" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When a peer joins the team receives the public key of the splitter.</h3></div><br />
+		
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-2.svg" alt="STrPe-DS" align="left" height="540" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When a peer joins the team they receive the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-3.svg" alt="STrPe-DS" align="left" height="540" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When a peer joins the team they receive the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+		<div ><h3><b>3.</b>The peers verify <i>dst</i> and check if the hash value is correct.</h3></div><br />
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-4.svg" alt="STrPe-DS" align="left" height="540" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When a peer joins the team they receive the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+		<div ><h3><b>3.</b>The peers verify <i>dst</i> and check if the hash value is correct.</h3></div><br />
+		<div ><h3><b>4.</b>The splitter periodically requests the list of removed peers.</h3></div><br />
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-5.svg" alt="STrPe-DS" align="left" height="540" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When a peer joins the team receives the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+		<div ><h3><b>3.</b>The peers verify <i>dst</i> and check the correctness of the hash value.</h3></div><br />
+		<div ><h3><b>4.</b>The splitter periodically requests the list of removed peers.</h3></div><br />
+		<div ><h3><b>5.</b>Peers removed by any TP are directly expelled by the splitter.</h3></div><br />
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-6.svg" alt="STrPe-DS" align="left" height="540" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When a peer joins the team receives the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+		<div ><h3><b>3.</b>The peers verify <i>dst</i> and check the correctness of the hash value.</h3></div><br />
+		<div ><h3><b>4.</b>The splitter periodically requests the list of removed peers.</h3></div><br />
+		<div ><h3><b>5.</b>Peers removed by any TP are directly expelled by the splitter.</h3></div><br />
+		<div ><h3><b>6.</b>The splitter can decide to expel a peer based on the information received from well-intended peers or attackers.</h3></div><br />
+	</section>
+	<!-- end of animation -->
+
+	<section>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h2><center><b>Problem:</b></li></h2><br />
+		<br />		
+		<ul>
+			<li class="fragment">
+				<h2>Making a decision in order to expel the attacker is not an easy task.</h2>
+			</li>
+			<br />
+	    	</ul>
+
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<h2 style="color:#CCC;"><li>Pollution Attacks</li></h2>
+		<h2 style="color:#CCC;"><li>Proposals</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>STrPe</li></h2>
+		<h2 style="color:#CCC;"><li>STrPe-DS</li></h2>
+                </ul>
+		<h2><li>Expelling Peers</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>Non-Repudiation Methods</li></h2>
+		<h2 style="color:#CCC;"><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2 style="color:#CCC;"><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>How to make a decision about expelling peers from the team?</h1><br /><br />
+		<div style="float:left; width:50%;" class="fragment">
+			<img src="images/attack1.svg" alt="Attack 1" width="700" style="margin:5px"/> 				<br />
+			<h2><center>Selective Attack</li></h2>
+			<br />
+		</div>
+		<div style="float:left; width:50%;" class="fragment">
+			<img src="images/attack2.svg" alt="Attack 2" width="700" style="margin:5px"/> 
+			<br />
+			<h2><center>Bad-mouth Attack</li></h2>
+			<br />		
+		</div>
+		<br />		
+		<h3 class="fragment" style="text-align: justify;">If three peers are complaining about one peer, it is difficult for the splitter to know whether there are three attackers trying to expel one well-intended peer or if it is actually one attacker poisoning three well-intended peers.</h3>
+
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<h2 style="color:#CCC;"><li>Pollution Attacks</li></h2>
+		<h2 style="color:#CCC;"><li>Proposals</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>STrPe</li></h2>
+		<h2 style="color:#CCC;"><li>STrPe-DS</li></h2>
+                </ul>
+		<h2><li>Expelling Peers</li></h2>
+                <ul>
+		<h2><li>Non-Repudiation Methods</li></h2>
+		<h2 style="color:#CCC;"><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2 style="color:#CCC;"><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>Non-repudiation methods</h1><br />
+		<h2><center>The goal is provide proof of the integrity and origin of data.</li></h2><br />
+		<img id="nonrepudiation" src="images/non-repudiation.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+	</section>
+	<!-- animation -->	
+	<section data-transition=none>
+
+		<h1>Non-repudiation methods</h1><br />
+		<h2><center>The goal is provide proof of the integrity and origin of data.</li></h2><br />
+		<img src="images/non-repudiation-1.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div><h3><b></b> By using Trusted Third Parties (TTPs). <a href="http://dl.acm.org/citation.cfm?id=1368474&dl=ACM&coll=DL&CFID=516952395&CFTOKEN=65439937" title="Michael Conrad. Non-repudiation Mechanisms for Peer-to-peer Networks: Enabling Technology for Peer-to-peer Economic Markets. In Proceedings of the 2006
+ACM CoNEXT Conference, CoNEXT ’06, pages 30:1–30:2, New York, NY, USA,2006. ACM.">[1]</a> <br /> <span class="fragment" style="color:red;">It is not in consonance with the P2P philosophy.</span> </h3><br/></div><br />
+	</section>
+	<section data-transition=none>
+
+		<h1>Non-repudiation methods</h1><br />
+		<h2><center>The goal is provide proof of the integrity and origin of data.</li></h2><br />
+		<img src="images/non-repudiation-2.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div><h3><b></b> By using Trusted Third Parties (TTPs). <a href="http://dl.acm.org/citation.cfm?id=1368474&dl=ACM&coll=DL&CFID=516952395&CFTOKEN=65439937" title="Michael Conrad. Non-repudiation Mechanisms for Peer-to-peer Networks: Enabling Technology for Peer-to-peer Economic Markets. In Proceedings of the 2006
+ACM CoNEXT Conference, CoNEXT ’06, pages 30:1–30:2, New York, NY, USA,2006. ACM.">[1]</a><br /> <span style="color:red;">It is not in consonance with the P2P philosophy.</span> </h3><br/></div><br />
+		<div><h3><b></b> There are non-repudiation methods without TTPs but consider that both parties are interested in the content and the number of necessary messages is usually high. <a href="http://link.springer.com/chapter/10.1007%2F978-3-319-09581-3_1" title="Mohamed G Gouda. Keynote talk: Communication without repudiation: The unanswered question. In Networked Systems, pages 1–8. Springer, 2014.">[2]</a><br /> <span class="fragment" style="color:red;">The attacker may be interested in poisoning the content but not in the content itself.</span> </h3><br/></div><br />
+
+	</section>
+	<section data-transition=none>
+		<h1>Non-repudiation methods</h1><br />
+		<h2><center>The goal is provide proof of the integrity and origin of data.</li></h2><br />
+		<img src="images/non-repudiation-3.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div><h3><b></b> By using Trusted Third Parties (TTPs). <a href="http://dl.acm.org/citation.cfm?id=1368474&dl=ACM&coll=DL&CFID=516952395&CFTOKEN=65439937" title="Michael Conrad. Non-repudiation Mechanisms for Peer-to-peer Networks: Enabling Technology for Peer-to-peer Economic Markets. In Proceedings of the 2006
+ACM CoNEXT Conference, CoNEXT ’06, pages 30:1–30:2, New York, NY, USA,2006. ACM.">[1]</a><br /> <span style="color:red;">It is not in consonance with the P2P philosophy.</span> </h3><br/></div><br />
+		<div><h3><b></b> There are solutions without TTPs but consider that both parties are interested in the content and the number of necessary messages is usually high. <a href="http://link.springer.com/chapter/10.1007%2F978-3-319-09581-3_1" title="Mohamed G Gouda. Keynote talk: Communication without repudiation: The unanswered question. In Networked Systems, pages 1–8. Springer, 2014.">[2]</a><br /> <span style="color:red;">The attacker may be interested in poisoning the content but not in the content itself.</span> </h3><br/></div><br />
+		<br /><br /><br />
+		<div><h2><b> <center>There is not currently a suitable non-repudiation system allowing to the splitter to decide who the attacker is.</center></b><br /></h2><br/></div><br />
+
+	</section>
+	<!-- end of animation -->
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<h2 style="color:#CCC;"><li>Pollution Attacks</li></h2>
+		<h2 style="color:#CCC;"><li>Proposals</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>STrPe</li></h2>
+		<h2 style="color:#CCC;"><li>STrPe-DS</li></h2>
+                </ul>
+		<h2><li>Expelling Peers</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>Non-Repudiation Methods</li></h2>
+		<h2><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2 style="color:#CCC;"><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>Trust-based methods</h1><br />
+		<h2>Due to the absence of a suitable non-repudiation system, this is usually the most used solution.
+<a href="http://dl.acm.org/citation.cfm?id=775242" title="Kamvar, S. D., Schlosser, M. T., & Garcia-Molina, H. (2003, May). The eigentrust algorithm for reputation management in p2p networks. In Proceedings of the 12th international conference on World Wide Web (pp. 640-651). ACM.">[3]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5072145" title="Alex Borges Vieira, Sergio Campos, and Jussara Almeida. Fighting attacks in P2P live streaming. simpler is better. In INFOCOM Workshops 2009, IEEE, pages 1–2. IEEE, 2009.">[4]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5414199" title="Bo Hu and H.V. Zhao. Pollution-resistant peer-to-peer live streaming using trust management. In Image Processing (ICIP), 2009 16th IEEE International Conference on, pages 3057–3060, Nov 2009.">[5]</a>
+
+</h2><br />
+		<img src="images/non-repudiation.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+
+	</section>
+	<!-- animation -->
+	<section data-transition=none>
+		<h1>Trust-based methods</h1><br />
+		<h2>Due to the absence of a suitable non-repudiation system, this is usually the most used solution. 
+<a href="http://dl.acm.org/citation.cfm?id=775242" title="Kamvar, S. D., Schlosser, M. T., & Garcia-Molina, H. (2003, May). The eigentrust algorithm for reputation management in p2p networks. In Proceedings of the 12th international conference on World Wide Web (pp. 640-651). ACM.">[3]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5072145" title="Alex Borges Vieira, Sergio Campos, and Jussara Almeida. Fighting attacks in P2P live streaming. simpler is better. In INFOCOM Workshops 2009, IEEE, pages 1–2. IEEE, 2009.">[4]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5414199" title="Bo Hu and H.V. Zhao. Pollution-resistant peer-to-peer live streaming using trust management. In Image Processing (ICIP), 2009 16th IEEE International Conference on, pages 3057–3060, Nov 2009.">[5]</a>
+
+</h2><br />
+		<img src="images/trustbased-1.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div><h3>Statistical models.</span> </h3><br/></div><br />
+	</section>
+	<section data-transition=none>
+		<h1>Trust-based methods</h1><br />
+		<h2>Due to the absence of a suitable non-repudiation system, this is usually the most used solution.
+<a href="http://dl.acm.org/citation.cfm?id=775242" title="Kamvar, S. D., Schlosser, M. T., & Garcia-Molina, H. (2003, May). The eigentrust algorithm for reputation management in p2p networks. In Proceedings of the 12th international conference on World Wide Web (pp. 640-651). ACM.">[3]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5072145" title="Alex Borges Vieira, Sergio Campos, and Jussara Almeida. Fighting attacks in P2P live streaming. simpler is better. In INFOCOM Workshops 2009, IEEE, pages 1–2. IEEE, 2009.">[4]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5414199" title="Bo Hu and H.V. Zhao. Pollution-resistant peer-to-peer live streaming using trust management. In Image Processing (ICIP), 2009 16th IEEE International Conference on, pages 3057–3060, Nov 2009.">[5]</a>
+
+</h2><br />
+		<img src="images/trustbased-2.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div><h3>Statistical models.</span> </h3><br/></div><br />
+		<div><h3>Bayesian networks.<br /> </h3><br/></div><br />
+	</section>
+	<section data-transition=none>
+		<h1>Trust-based methods</h1><br />
+		<h2>Due to the absence of a suitable non-repudiation system, this is usually the most used solution. 
+<a href="http://dl.acm.org/citation.cfm?id=775242" title="Kamvar, S. D., Schlosser, M. T., & Garcia-Molina, H. (2003, May). The eigentrust algorithm for reputation management in p2p networks. In Proceedings of the 12th international conference on World Wide Web (pp. 640-651). ACM.">[3]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5072145" title="Alex Borges Vieira, Sergio Campos, and Jussara Almeida. Fighting attacks in P2P live streaming. simpler is better. In INFOCOM Workshops 2009, IEEE, pages 1–2. IEEE, 2009.">[4]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5414199" title="Bo Hu and H.V. Zhao. Pollution-resistant peer-to-peer live streaming using trust management. In Image Processing (ICIP), 2009 16th IEEE International Conference on, pages 3057–3060, Nov 2009.">[5]</a>
+
+
+</h2><br />
+		<img src="images/trustbased-3.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div><h3>Statistical models.</span> </h3><br/></div><br />
+		<div><h3>Bayesian networks.<br /> </h3><br/></div><br />
+		<div><h3>Machine learning.<br /></h3><br/></div><br />
+	</section>
+	<section data-transition=none>
+		<h1>Trust-based methods</h1><br />
+		<h2>Due to the absence of a suitable non-repudiation system, this is usually the most used solution. 
+<a href="http://dl.acm.org/citation.cfm?id=775242" title="Kamvar, S. D., Schlosser, M. T., & Garcia-Molina, H. (2003, May). The eigentrust algorithm for reputation management in p2p networks. In Proceedings of the 12th international conference on World Wide Web (pp. 640-651). ACM.">[3]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5072145" title="Alex Borges Vieira, Sergio Campos, and Jussara Almeida. Fighting attacks in P2P live streaming. simpler is better. In INFOCOM Workshops 2009, IEEE, pages 1–2. IEEE, 2009.">[4]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5414199" title="Bo Hu and H.V. Zhao. Pollution-resistant peer-to-peer live streaming using trust management. In Image Processing (ICIP), 2009 16th IEEE International Conference on, pages 3057–3060, Nov 2009.">[5]</a>
+
+</h2><br />
+		<img src="images/trustbased-3.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div><h3>Statistical models.</span> </h3><br/></div><br />
+		<div><h3>Bayesian networks.<br /> </h3><br/></div><br />
+		<div><h3>Machine learning.<br /></h3><br/></div><br />
+		<div><h3>...<br /></h3><br/></div><br />
+	</section>
+	<section data-transition=none>
+		<h1>Trust-based methods</h1><br />
+		<h2>Due to the absence of a suitable non-repudiation system, this is usually the most used solution. 
+<a href="http://dl.acm.org/citation.cfm?id=775242" title="Kamvar, S. D., Schlosser, M. T., & Garcia-Molina, H. (2003, May). The eigentrust algorithm for reputation management in p2p networks. In Proceedings of the 12th international conference on World Wide Web (pp. 640-651). ACM.">[3]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5072145" title="Alex Borges Vieira, Sergio Campos, and Jussara Almeida. Fighting attacks in P2P live streaming. simpler is better. In INFOCOM Workshops 2009, IEEE, pages 1–2. IEEE, 2009.">[4]</a>
+
+<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=5414199" title="Bo Hu and H.V. Zhao. Pollution-resistant peer-to-peer live streaming using trust management. In Image Processing (ICIP), 2009 16th IEEE International Conference on, pages 3057–3060, Nov 2009.">[5]</a>
+
+</h2><br />
+		<img src="images/trustbased-4.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div><h3>Statistical models.</span> </h3><br/></div><br />
+		<div><h3>Bayesian networks.<br /> </h3><br/></div><br />
+		<div><h3>Machine learning.<br /></h3><br/></div><br />
+		<div><h3>...<br /></h3><br/></div><br />
+		<br /><br /><br />
+		<div><h2><b><center> Trust-based methods can produce false-positive or false-negative results.</center></b><br /></h2><br/></div><br />
+	</section>
+
+	<!-- end of animation -->
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<h2 style="color:#CCC;"><li>Pollution Attacks</li></h2>
+		<h2 style="color:#CCC;"><li>Proposals</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>STrPe</li></h2>
+		<h2 style="color:#CCC;"><li>STrPe-DS</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Expelling Peers</li></h2>
+                <ul>
+		<h2 style="color:#CCC;"><li>Non-Repudiation Methods</li></h2>
+		<h2 style="color:#CCC;"><li>Trust-Based Methods</li></h2>
+		</ul>
+		<h2><li>Coming soon...</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>Coming soon...</h1><br />
+		<h2 style="text-align:center;">What if a method exists which avoids false-positive and false-negative results?</h2><br />
+		<img src="images/working.svg" alt="Non-repudiation" align="left" height="300" style="margin:5px"/> <br />
+		<div class="fragment"><h3>Without TTP.</span> </h3><br/></div><br />
+		<div class="fragment"><h3>Fast convergence.<br /> </h3><br/></div><br />
+		<div class="fragment"><h3>100% success.<br /></h3><br/></div><br />
+		<div class="fragment"><h2><center><b> We are working on it!.</b></center><br /></h2><br/></div><br />
+
+	</section>	
+
+	
+
+	<section data-background="images/preguntas.png">
+  		
+		<h1>Thanks!</h1><br />
+   
+ 	</section>
+     
+    </div>    
+    <script src="./reveal.min.js"></script>
+    
+    <script>
+      
+      Reveal.initialize({
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true//,
+      //theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      });
+
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-42660390-1', 'p2psp.org');
+		ga('send', 'pageview');
+
+	</script>
+    
+  </body>
+</html>

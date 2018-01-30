@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">    
+    <title>On Pollution attacks in fully connected P2P networks using trusted peers</title>    
+    <link rel="stylesheet" href="./reveal.min.css">
+    <style>
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.3); 
+  height: 10px; 
+}
+
+.reveal .progress span {
+  background: #380B61;
+}
+
+.reveal .selection{
+	background: #380B61;
+}
+.reveal h1 {color: #380B61;}
+.reveal h2 {text-align: justify;}
+.reveal .slide-number{font-size: 36px;}
+
+.visible{height:auto;}
+.invisible{height:0;}
+
+.gray{color: #CCC;}
+
+::selection{ background: #CCC;}
+
+    </style>
+  </head>
+  
+  <body>
+    
+    <div class="reveal">      
+      <div class="slides">
+	  
+	<section>
+
+		<h1>On Pollution attacks in fully connected P2P networks using trusted peers</h1><br /><br />
+		<h2 style="text-align:center;">Cristóbal Medina-López,
+		                               Ilshat Shakirov,
+						L.G. Casado and	
+		 				Vicente González-Ruiz</h2><br /><br />
+					
+		<img src="images/sal.png" alt="Feder" height="120">
+		<h3> 
+			<b>Department of Informatics</b> <br /> 
+			University of Almería <br /> 
+			Spain 
+		</h3><br />
+
+		<img src="images/feder.png" alt="Feder" height="70">
+		<img src="images/gobierno.jpg" alt="Gobierno de España" height="70">
+		<img src="images/junta.png" alt="Junta de Andalucia" height="70">
+		<img src="images/ceia3.jpg" alt="CEIA3" height="70">
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="70" />
+
+	</section>
+
+	<section>
+
+		<h1>Follow the slideshow on the Web</h1><br />
+		<h2><center>URL of these Slides:<br /><br />
+		<a style="color: red; text-align:center;" href="http://slides.p2psp.org/2016-12-ISDA/">http://slides.p2psp.org/2016-12-ISDA/</a></li></h2> <br /><br />
+		<img src="images/diapositivas.png" alt="Diapositivas" height="250" />
+
+	</section>
+	
+	
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2><li>Motivation</li></h2>
+		<h2><li>P2PSP</li></h2>
+		<h2><li>Pollution Attacks</li></h2>
+		<h2><li>Proposal</center></li></h2>
+                <ul>
+		<h2><li>STrPe-DS model</li></h2>
+                </ul>
+		<h2><li>Experiments</li></h2>
+                <ul>
+		<h2><li>Test bed</li></h2>
+		<h2><li>Experimental results</li></h2>
+		</ul>
+		<h2><li>Conclusions</li></h2>
+		</ul>
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2><li>Motivation</li></h2>
+		<h2 class="gray"><li>P2PSP</li></h2>
+		<h2 class="gray"><li>Pollution Attacks</li></h2>
+		<h2 class="gray"><li>Proposal</center></li></h2>
+                <ul>
+		<h2 class="gray"><li>STrPe-DS model</li></h2>
+                </ul>
+		<h2 class="gray"><li>Experiments</li></h2>
+                <ul>
+		<h2 class="gray"><li>Test bed</li></h2>
+		<h2 class="gray"><li>Experimental results</li></h2>
+		</ul>
+		<h2 class="gray"><li>Conclusions</li></h2>
+		</ul>
+	</section>
+
+         <section>
+  
+	  	<h1>Motivation</h1>
+		<ul>
+			<li class="fragment">
+				<h2>We have a P2P streaming system and we need to ensure the stream quality. So, we have to expel the Malicious Peers (MPs) using Trusted Peers (TPs) before they drive out the Well Intended Peers (WIPs).</h2>
+			</li>
+			<br />
+			<li class="fragment">	
+				<h2>It is not an easy task because each decision made by one part (TPs) may have a countermeasure by the other part (MPs).</h2>
+			</li>
+			<br />
+			<li class="fragment">
+				<h2>We find a difficult multi-objective optimization problem in the Malicious side and also in the Trusted Peers side.</h2>
+			</li>
+	    </ul>
+	 </section>
+
+	  <section>
+  
+	    <h1>Motivation</h1>
+	    <h2 style="text-align: center;">Multi-objetive optimization problem</h2>
+		<ul>
+			<li class="fragment">
+			  <h2><b>MP side: to minimize the stream quality</b></h2>
+			  <h2>- to maximize the number of detected TPs.</h2>
+			  <h2>- to minimize the number of MPs (cost).</h2>
+			  <h2>- to minimize the number of MPS expelled by TPs.</h2>
+			  <h2>- to maximize the number of polluted chunks in WIPs.</h2>
+			  <h2>- to perform previous task in a minimun number of rounds.</h2>
+			</li>
+			<br />
+			<li class="fragment">
+			  <h2><b>TP side: to maximize the stream quality</b></h2>
+			  <h2>- to minimize the number of MPs (this minimize the number of polluted chunks in the team).</h2>
+			  <h2>- to minimize the number of TPs (cost).</h2>
+			  <h2>- to perform previous task in a minimun number of rounds.</h2>
+			</li>
+	    </ul>
+	</section>
+
+
+<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 class="gray"><li>Motivation</li></h2>
+		<h2><li>P2PSP</li></h2>
+		<h2 class="gray"><li>Pollution Attacks</li></h2>
+		<h2 class="gray"><li>Proposal</center></li></h2>
+                <ul>
+		<h2 class="gray"><li>STrPe-DS model</li></h2>
+                </ul>
+		<h2 class="gray"><li>Experiments</li></h2>
+                <ul>
+		<h2 class="gray"><li>Test bed</li></h2>
+		<h2 class="gray"><li>Experimental results</li></h2>
+		</ul>
+		<h2 class="gray"><li>Conclusions</li></h2>
+		</ul>
+	</section>
+	
+	<section>
+
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="150" /><br />
+		<ul>
+			<li class="fragment">
+				<h2><a href="http://www.p2psp.org/en/">P2PSP (Peer to Peer Straightforward Protocol)</a> is an open application-layer protocol for the real-time
+			  	streaming of media content over a peer-to-peer overlay.</h2>
+			</li>
+			<br />
+			<li class="fragment">	
+				<h2>P2PSP is based on a push-based fully connected mesh scheme where every peer is connected with each other.</h2>
+			</li>
+			<br />
+			<li class="fragment">
+				<h2>An open-source (<a href="https://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>) implementation is available on <a href="https://github.com/p2psp">
+			  	GitHub</a>.<br /><br />
+				<center><a href="https://summerofcode.withgoogle.com/archive/2016/organizations/5845209434816512/"><img src="images/gsoc-banner.jpg"
+				height="80px"/><br /><span style="font-size:x-large;">
+				P2PSP.org in Google Summer of Code 2016 </span></a></center>
+				</h2>
+			</li>
+	    </ul>
+
+	</section>
+
+	<section>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+	
+ 	</section>
+
+	<!-- animation --> 
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-1.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+	
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-2.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-2-2.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-2-3.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-2-4.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-3.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div ><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div ><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		<div ><h3><b>3.</b> Each peer sends its chunks to each other in order to ensure that everyone has the whole stream.</h3></div><br />
+	
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>How does a P2PSP system work?</h1><br />
+		<h2><center>A P2PSP Team</li></h2> <br />
+		<img src="images/team-modern-4.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> The video is sent in real time to the Splitter.</h3></div><br />
+		<div><h3><b>2.</b> The Splitter divides the stream in several chunks and every chunk is sent to one different peer.</h3></div><br />
+		<div><h3><b>3.</b> Each peer sends its chunks to each other in order to ensure that everyone has the whole stream.</h3></div><br />
+		<div><h3><b>4.</b> Peers send the stream to the player.</h3></div>
+ 	</section>
+	<!-- end of animation --> 
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+  		<h2 class="gray"><li>Motivation</li></h2>
+		<h2 class="gray"><li>P2PSP</li></h2>
+		<h2><li>Pollution Attacks</li></h2>
+		<h2 class="gray"><li>Proposals</center></li></h2>
+                <ul>
+		<h2 class="gray"><li>STrPe-DS model</li></h2>
+                </ul>
+		<h2 class="gray"><li>Experiments</li></h2>
+                <ul>
+		<h2 class="gray"><li>Test bed</li></h2>
+		<h2 class="gray"><li>Experimental results</li></h2>
+		</ul>
+		<h2 class="gray"><li>Conclusions</li></h2>
+		</ul>
+	</section>
+	
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2>Pollution attacks consist of a peer or a set of peers modifying the content of the stream. Can be done as a combination of different kind of attack.</h2><br />
+
+	</section>
+
+	<section>
+
+		<h1>Pollution Attacks</h1><br />
+		<h2><strong>Persistent, Selective and Collaborative attack</strong>: several attackers may collaborate to produce selective and persistent attacks on a large set of peers.</h2><br />
+
+			<div>
+			<img src="images/collaborative-attack.svg" alt="Collaborative Attack" height="500" style="margin:5px"/> <br />
+
+</div>	
+
+	</section>
+
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 class="gray"><li>Motivation</li></h2>
+		<h2 class="gray"><li>P2PSP</li></h2>
+		<h2 class="gray"><li>Pollution Attacks</li></h2>
+		<h2><li>Proposal</center></li></h2>
+                <ul>
+		<h2><li>STrPe-DS model</li></h2>
+                </ul>
+		<h2 class="gray"><li>Experiments</li></h2>
+                <ul>
+		<h2 class="gray"><li>Test bed</li></h2>
+		<h2 class="gray"><li>Experimental results</li></h2>
+		</ul>
+		<h2 class="gray"><li>Conclusions</li></h2>
+		</ul>
+	</section>
+
+
+	<section>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds.svg" alt="STrPe-DS" align="left" height="450" style="margin:5px"/> <br />		
+
+
+	</section>
+	<!-- animation -->
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-1.svg" alt="STrPe-DS" align="left" height="450" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When peers join the team they receive the public key of the splitter.</h3></div><br />
+		
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-2.svg" alt="STrPe-DS" align="left" height="450" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When peers join the team they receive the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-3.svg" alt="STrPe-DS" align="left" height="450" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When peers join the team they receive the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+		<div ><h3><b>3.</b>The peers verify <i>dst</i> and check if the hash value is correct.</h3></div><br />
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-4.svg" alt="STrPe-DS" align="left" height="450" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When peers join the team they receive the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+		<div ><h3><b>3.</b>The peers verify <i>dst</i> and check if the hash value is correct.</h3></div><br />
+		<div ><h3><b>4.</b>The splitter periodically requests
+		the list of removed peers to the TP.</h3></div><br />
+	</section>
+	<section data-transition=none>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<h3 style="text-align: justify;"><b>It has been designed to mitigate the Selective attack and to identify poisoned chunks by using digital signatures. The behavior rules are:</b></h3><br />
+		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
+		<img src="images/strpeds-5.svg" alt="STrPe-DS" align="left" height="450" style="margin:5px"/> <br />		
+		<div ><h3><b>1.</b>When peers join the team they receive the public key of the splitter.</h3></div><br />
+		<div ><h3><b>2.</b>For each chunk, the splitter sends a message like this: <br /><i>{chunk, nChunk, dst, S priv (H(chunk + nChunk + dst))}</i>.</h3></div><br />
+		<div ><h3><b>3.</b>The peers verify <i>dst</i> and check if the hash value is correct.</h3></div><br />
+		<div ><h3><b>4.</b>The splitter periodically requests
+		the list of removed peers to the TP.</h3></div><br />
+		<div ><h3><b>5.</b>Peers removed by any TP are
+		directly expelled by the splitter after a random time.</h3></div><br />
+	</section>
+	<!-- end of animation -->
+
+
+	<section>
+
+		<h1>Strategy based on Trusted Peers and Digital Signatures</h1><br />
+		<br />		
+		<ul>
+		  <li class="fragment">
+		    	<h2>Can trusted peers expel the bad guys by
+		    	  following these basic rules?</h2>
+			<br/>
+			<center>
+			<img id="nonrepudiation"
+				src="images/non-repudiation.svg"
+				alt="Non-repudiation" height="300"
+			     style="margin:5px"/>
+			</center>
+			</li>
+			<br />
+	    	</ul>
+
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 class="gray"><li>Motivation</li></h2>
+		<h2 class="gray"><li>P2PSP</li></h2>
+		<h2 class="gray"><li>Pollution Attacks</li></h2>
+		<h2 class="gray"><li>Proposals</center></li></h2>
+                <ul>
+		<h2 class="gray"><li>STrPe-DS model</li></h2>
+                </ul>
+		<h2><li>Experiments</li></h2>
+                <ul>
+		<h2><li>Test bed</li></h2>
+		<h2 class="gray"><li>Experimental results</li></h2>
+		</ul>
+		<h2 class="gray"><li>Conclusions</li></h2>
+		</ul>
+	</section>
+
+
+	<section>
+
+		<h1>Test bed</h1><br />
+		<h2><center>Behavior of the entities</center></h2><br />
+		<ul>
+		  <li class="fragment"><h3>Churn:</h3>
+		  <ul>
+		    <li><h3>TPs are incorporated into the team at
+		      random.</h3></li>
+		    <li><h3>Peers stay in the team a period of time
+		    modeled by a Weibull distribution.</h3></li>
+		  </ul></li>
+		  
+		  <br />
+		  <li class="fragment"><h3>MPs:</h3>
+		  <ul>
+		    <li><h3>Always attack in a persistent, selective
+		    and collaborative way.</h3></li>
+		    <li><h3>They do not attack over 50% of the
+			team.</h3></li>
+		    <li><h3>They scout for TPs doing a one-to-one
+			attack during a period of time (MPTR).</h3></li>
+		     <li><h3>If after MPTR an MP is not expelled, the
+		     attacked peer is added to a "safe to attack"
+			 list.</h3></li>
+		     <li><h3>All MPs attack to the "safe to attack" list.</h3></li>
+		  </ul></li>
+
+		  <br />
+		  <li class="fragment"><h3>TPs:</h3>
+		  <ul>
+		    <li><h3>TPs inform to the splitter about attacks ASAP.</h3></li>
+		    <li><h3>A TP will leave the team after complain
+		    about an MP with probability P<sub>tpl</sub> in order to
+		    avoid its detection by MPs.</h3></li>
+		  </ul></li>
+		  
+		</ul>
+
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 class="gray"><li>Motivation</li></h2>
+		<h2 class="gray"><li>P2PSP</li></h2>
+		<h2 class="gray"><li>Pollution Attacks</li></h2>
+		<h2 class="gray"><li>Proposals</center></li></h2>
+                <ul>
+		<h2 class="gray"><li>STrPe-DS model</li></h2>
+                </ul>
+		<h2 class="gray"><li>Experiments</li></h2>
+                <ul>
+		<h2 class="gray"><li>Test bed</li></h2>
+		<h2><li>Experimental results</li></h2>
+		</ul>
+		<h2 class="gray"><li>Conclusions</li></h2>
+		</ul>
+	</section>
+
+	
+	<section>
+
+		<h1>Experimental results</h1><br />
+		<h2><center>Results obtained by
+		    simulation <a href="https://github.com/P2PSP/war-games">[war-games]</a></center></h2><br />
+		
+
+		<img src="images/experiments.png" alt="experiments"
+		     align="left" height="350" style="margin:5px"/>
+		<img src="images/results.png" alt="experiments"
+		     align="left" height="450" style="margin:5px"/>
+		<br />
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Table of Contents</h1><br />
+		<ul>
+		<h2 class="gray"><li>Motivation</li></h2>
+		<h2 class="gray"><li>P2PSP</li></h2>
+		<h2 class="gray"><li>Pollution Attacks</li></h2>
+		<h2 class="gray"><li>Proposals</center></li></h2>
+                <ul>
+		<h2 class="gray"><li>STrPe-DS model</li></h2>
+                </ul>
+		<h2 class="gray"><li>Experiments</li></h2>
+                <ul>
+		<h2 class="gray"><li>Test bed</li></h2>
+		<h2 class="gray"><li>Experimental results</li></h2>
+		</ul>
+		<h2><li>Conclusions</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>Conclusions</h1><br />
+		<h2>Experiments show that we need at least the same number of TPs than MPs to mitigate the attack completely. So, an approach based on Trusted Peers is enough to mitigate pollution attacks when the number of malicious is not too large.</h2><br />
+		<h2>When the number of malicious is large, improvements in the policies and additional techniques should be addressed.</h2>
+
+		<center>
+		<img src="images/trustbased-4.svg" alt="good guys?" height="300" style="margin:5px"/> <br />
+		</center>
+		
+	</section>
+	
+
+	<section data-background="images/preguntas.png">
+  		
+		<h1>Thanks!</h1><br />
+   
+ 	</section>
+     
+    </div>    
+    <script src="./reveal.min.js"></script>
+    
+    <script>
+      
+      Reveal.initialize({
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true
+      });
+
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-42660390-1', 'p2psp.org');
+		ga('send', 'pageview');
+
+	</script>
+    
+  </body>
+</html>

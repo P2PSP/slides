@@ -1,0 +1,99 @@
+Slide 0:
+Hello everybody,
+My name is Cristóbal Medina. I'm a PhD student in computer science at University of Almeria. Today, I want to talk about pollution attacks detection in fully connected P2P networks using trusted peers.
+
+Slide 1:
+This presentation is available online at slides.p2psp.org.
+
+Slide 2:
+First, we are going to talk about P2PSP. Second, what Pollution attacs are. After that we'll introduce our proposal. Next, some experiments and Finally the conlusions.
+
+Slide 3,4:
+First, What is the P2PSP protocol?
+- It's an application layer protocol for the real-time streaming of multimedia content over the Internet.
+- Where every peer is connected each other following a fully connected mesh scheme.
+- An open source implementation is available on GitHub at github.com/P2PSP
+- Every year we participate as a mentor organization in the Google summer of code with the aim of improving the protocol.
+
+slide 5:
+The main entities in a P2PSP system are: peers, players, one splitter and one source.
+How does it work?
+
+slide 6:
+The source records the video and sends it in real time to the splitter.
+
+slide 7,8,9,10:
+The Splitter divides the stream in several chunks and every chunk is sent to one different peer. In this case, the splitter sends the chunk number 1 to peer 1, 2 to peer 2, 3 to peer 3, 4 to peer 1, 5 to peer 2 and so on.
+
+slide 11:
+Each peer sends its chunks to each others in order to everyone have the whole stream. Note that only the chunks that each peer receives from the splitter will be retransmitted.
+
+slide 12:
+Finally, the peers send the stream to the players.
+
+slide 13,14:
+What are pollution attacks?
+A pollution attack describes a situation where a peer or a set of peers try to modify the content of a stream. We can find different kind of attacks.
+Slide 15:
+- Persistent attack: when an attacker poisons every chunk received from the splitter and sends them to the entire team. It's not a common attack because it's very easy to detect.
+
+Slide 16:
+- On-Off attack: when the attacker poisons some chunks and not other. It's a trick to remain longer time into the team.
+
+Slide 17:
+- Selective attack: in order to avoid being detected quickly, the attacker only attacks some peers and not other.
+
+Slide 18:
+- Collaborative attack: attackers can work together in order to cause a big damage.
+
+Slide 19
+- Hand-wash attack: it's leave the team and after that, join again with a different alias. Doing this, the attacker resets his reputation to 0.
+
+slide 20:
+We propose a strategy in order to mitigate the impact of pollution and related attacks.
+
+slide 21:
+The main aim in this strategy is to mitigate the selective attack and to identify poisoned chunks by using digital signatures.
+
+slide 22:
+First, when a peer joins to the team, the splitter sends him his public key.
+
+slide 23:
+For each chunk the splitter sends a message including the chunk, the number of chunk, the destination address and a digital signature of the message.
+
+slide 24:
+When a peer receives a chunk from other peer, it verifies the destination address and check if the hash value is correct.
+
+slide 25:
+The splitter periodically requests the list of removed peers to Trusted peers.
+
+slide 26:
+Peers removed by a TP are expelled by the splitter after a ramdom time. The idea is to disasociate the action of the Malicious peer with the Trusted peer.
+
+slide 27:
+So, Can trusted peers expel all malicious peers by following these basic rules?
+
+slide 28:
+Let see with experiments.
+
+slide 29:
+Behavior of the entities (read from the slide)
+
+slide 30,31:
+These results were obtained by simulation with a simulator available on GitHub. It's free software too.
+We can see three situation:
+1. When the number of TPs is greater than MPs the attack is completely mitigated.
+2. When the number of TPs is equal to MPs the attack is mitigated too.
+3. When the number of TPs is less than MPs the attack is not mitigated.
+
+slide 32,33:
+Conclusions. We have a multi-objetive optimization problem where each decision made by one part may have a countermeasure by the other part.
+With the policies defined for this study the strategy based on trusted peers is not enough to fight with a large set of malicious.
+We are working on new strategies to reduce the necesary number of TPs to beat malicious guys. 
+
+slide 34:
+Thank you very much!
+Any questions?
+
+
+

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="utf-8">    
+    <title>Google Summer of Code. ¿Aceptas el reto?</title>    
+    <link rel="stylesheet" href="./reveal.min.css">
+    <style>
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.3); 
+  height: 10px; 
+}
+
+.reveal .progress span {
+  background: #494f77;
+}
+
+.reveal .selection{
+	background: #380B61;
+}
+.reveal h1 {color:#494f77;}
+.reveal h2 {text-align: center;}
+.reveal .slide-number{font-size: 36px;}
+
+.visible{height:auto;}
+.invisible{height:0;}
+
+
+::selection{ background: #CCC;}
+
+.background {
+    background-color: #FFFFFF;
+    padding: 10px;
+    margin: 0px 0px 10px 0px;
+    opacity: 0.8;
+}
+ 
+</style>
+ </head>
+  
+  <body>
+    
+    <div class="reveal">      
+      <div class="slides">
+	<section>
+		<img src="images/gsoc.png" alt="GSoC" height="350" />
+		<br/>
+		<div>
+			<h1>Google Summer of Code</h1><br /><h2>¿Aceptas el reto?</h2>
+		</div>
+	</section>
+
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC" height="100" /><br /><br />
+		<h2 class="fragment"><blockquote>"Google Summer of Code (GSoC) es un programa internacional diseñado para animar a estudiantes universitarios a participar en proyectos de software libre"</blockquote></h2>
+		<!-- <h2 class="fragment"><blockquote>"Los estudiantes invierten su tiempo trabajando en un campo que puede ayudarles en sus estudios y en su carrera profesional después de la universidad"</blockquote></h2> -->
+		</div>		
+	</section>
+<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC" height="100" /><br /><br />
+		<div>
+		<h1 align="left">Objetivos:</h1>
+		<ul>		
+			<br /><li><h2 class="fragment">Ayudar a las organizaciones de software libre a identificar y atraer nuevos desarrolladores de cada año</h2></li>
+			<br /><li><h2 class="fragment">Enseñar a los universitarios cómo funciona el desarrollo de software en el mundo real</h2></li>
+			<br /><li><h2 class="fragment">Ayudar a los estudiantes a construir una red de contactos que les facilite encontrar trabajo en el futuro</h2></li> 		
+		</ul>
+		</div>		
+	</section>
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC 2016" height="100" /><br />
+		<br /><br />		
+		<h1>Para las organizaciones...</h1>
+		</div>
+	</section>
+	<section data-background="images/github-captura.png">
+		<div class="background">
+			<h1>Más colaboradores, ¡más código libre!</h1>
+		</div>
+	</section>
+	<section data-background="images/p2psp-lavoz.png">
+		<div class="background">
+			<h1>Exposición Global</h1>
+		<div>
+	</section>
+	<section data-background="images/money.jpg">
+		<div class="background">
+			<h1>500$ por proyecto realizado</h1>
+		</div>
+	</section>
+	<section data-background="images/camiseta.jpg">
+		<div class="background">
+			<h1>Una bonita camiseta</h1>
+		</div>
+	</section>
+	<section data-background="images/gsoc2015ms.jpg">
+		<div class="background">
+			<h1>Invitación para asistir al Mentor Summit en California</h1>
+		</div>
+	</section>
+	
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC 2016" height="100" /><br />
+		<br /><br />		
+		<h1>¿Qué hago para participar?</h1>
+		<br /><br />
+		<h2 class="fragment"> Sólo tienes que ir a <a href="http://g.co/gsoc">http://g.co/gsoc</a> y rellenar el formulario </h2><br />
+		<h2 class="fragment" style="color:red">¡¡Date prisa!! <br /> El deadline para las organizaciones es hoy (19 de Febrero) a las 20:00.</h2>
+		</div>
+	</section>
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC 2016" height="100" /><br />
+		<br /><br />		
+		<h1>Para los estudiantes...</h1>
+		</div>
+	</section>
+<section data-background="images/bug.jpg">
+		<div class="background">
+			<h1>Mejora tus habilidades en programación</h1>
+		</div>
+	</section>
+	<section data-background="images/gitter.png">
+		<div class="background">
+			<h1>Experiencia en el desarrollo de un proyecto real</h1>
+		<div>
+	</section>
+	<section data-background="images/world.png">
+		<div class="background">
+			<h1>Nuevas oportunidades de colaboración</h1>
+		</div>
+	</section>
+	<section data-background="images/camiseta.jpg">
+		<div class="background">
+			<h1>La misma bonita camiseta :)</h1>
+		</div>
+	</section>
+	<section data-background="images/certificate.jpg">
+		<div class="background">
+			<h1>Un certificado de participación</h1>
+		</div>
+	</section>
+	<section data-background="images/lotsofmoney.jpg">
+		<div class="background">
+			<h1>5500$ :-O</h1>
+		</div>
+	</section>
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC 2016" height="100" /><br />
+		<br /><br />		
+		<h1>¿Qué hago para participar?</h1>
+		<br /><br />
+		<h2 class="fragment"> Sólo tienes que ir a <a href="http://g.co/gsoc">http://g.co/gsoc</a> y rellenar el formulario</h2><br />
+		<h2 class="fragment" style="color:green">El periodo de inscripción para estudiantes estará abierto del 14 al 25 de Marzo</h2>
+		</div>
+	</section>
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC 2015" height="150" /><br />
+		<h1>¿Cómo es el proceso de selección?</h1>
+		</div>		
+		<br/><br/>
+		<ol>		
+			<h2><li class="fragment" align="left">Las organizaciones mentoras solicitan participar</li></h2><br/>
+			<h2><li class="fragment" align="left">Google publica la lista de organizaciones seleccionadas</li></h2><br/>
+			<h2><li class="fragment" align="left">Los estudiantes envían sus propuestas</li></h2><br/>
+			<h2><li class="fragment" align="left">Las organizaciones mentoras revisan y hacen un ranking de propuestas</li></h2><br/>
+			<h2><li class="fragment" align="left">Google publica la lista de estudiantes seleccionados</li></h2><br/>
+			<h2><li class="fragment" align="left">Los estudiantes empiezan a trabajar en el código bajo la supervisión de sus mentores</li></h2>
+		</ol>
+	</section>
+
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC 2015" height="150" /><br />
+		<h1>Lo que nos dice la experiencia...</h1>
+		</div>		
+		<br/><br/>
+		<ol>		
+			<h2><li class="fragment" align="left">Empieza a colaborar en una organización de software libre cuanto antes</li></h2><br/>
+			<h2><li class="fragment" align="left">Es mejor calidad que cantidad</li></h2><br/>
+			<h2><li class="fragment" align="left">No tengas miedo a discutir tus ideas con la organización</li></h2><br/>
+			<h2><li class="fragment" align="left">Aunque el inglés es el idioma oficial durante el programa, no te preocupes si tu inglés no es muy bueno. El código es un idioma universal.</li></h2><br/>
+			<h2><li class="fragment" align="left">Si no es público, no existe. Muestra lo mejor de tí en tu página web, github, g+, bitbucket, etc.</li></h2>
+		</ol>
+	</section>
+
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC 2015" height="150" /><br />
+		<h1>Algunos datos sobre el programa</h1>
+				
+		<br/><br/>
+		<ol>		
+			<h2><li class="fragment">En los 11 años de programa, han sido aceptados 11000 estudiantes de 103 países</li></h2><br/>
+			<h2><li class="fragment">Los paises con más estudiantes son: EEUU (2084), India (1808) y Alemania(651)</li></h2><br/>
+			<h2><li class="fragment">España tuvo el año pasado 30 estudiantes, EEUU 127, India 335 y Alemania 50</li></h2><br/>
+			<h2><li class="fragment">Aproximadamente se han escrito 50 millones de lineas de código</li></h2><br/>
+		</ol>
+		</div>
+	</section>
+
+	<section>
+		<div>
+		<img src="images/gsoc-banner.jpg" alt="GSoC 2015" height="150" /><br />
+		<h1>Organizaciones participantes</h1>
+		</div>		
+		<br/><br/>
+		<h2><a href="https://www.google-melange.com/gsoc/org/list/public/google/gsoc2015">Lista de organizaciones participantes en 2015</a></h2>
+	</section>
+
+
+
+<section>
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="350" />
+		<br/>
+		<div style="background-color:#CCC; padding:5px;">
+			<h1 style="color:#494f77;text-decoration: none;"><b>¡Conócenos!</b></h1>
+		</div>
+		<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-globe.png" alt="email" height="80" /><br />
+			<a style="color:#6E6E6E; font-size: x-large;text-decoration: none;" href="http://www.p2psp.org">www.p2psp.org</a>
+		</div>
+		<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-envelope.png" alt="email" height="80" /><br />
+			<a style="color:#494f77; font-size: x-large;text-decoration: none;" href="mailto:info@p2psp.org">info@p2psp.org</a>
+		</div>
+		<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-google-plus.png" alt="email" height="80" /><br />
+			<a style="color:#B40404; font-size: x-large;text-decoration: none;" href="http://gplus.p2psp.org">gplus.p2psp.org</a>
+		</div>
+<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-television.png" alt="email" height="80" /><br />
+			<a style="color:#c38804; font-size: x-large;text-decoration: none;" href="http://slides.p2psp.org">slides.p2psp.org</a>
+		</div>
+		<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-github.png" alt="email" height="80" /><br />
+			<a style="color:#000; font-size: x-large;text-decoration: none;" href="http://code.p2psp.org">code.p2psp.org</a>
+		</div>
+	</section>
+	<section data-background="images/preguntas.png">
+  		
+		<h1>Gracias!</h1><br />
+   
+ 	</section>
+	
+    </div>    
+    <script src="./reveal.min.js"></script>
+    
+    <script>
+      
+      Reveal.initialize({
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true//,
+      //theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      });
+
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-42660390-1', 'p2psp.org');
+		ga('send', 'pageview');
+
+	</script>
+    
+  </body>
+</html>
