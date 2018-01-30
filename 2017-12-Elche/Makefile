@@ -8,3 +8,10 @@ full:
 
 reveal:
 	jupyter nbconvert slides.ipynb --to slides --post serve --ServePostProcessor.port=8010 --SlidesExporter.reveal_scroll=True --SlidesExporter.reveal_theme=simple 
+
+index.html:	slides.ipynb
+	jupyter nbconvert slides.ipynb --to slides --SlidesExporter.reveal_theme=simple --SlidesExporter.reveal_url_prefix=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/
+	mv slides.slides.html index.html
+
+snapshot.png:	index.html
+	phantomjs ../rasterize.js index.html snapshot.png 400px*300px
