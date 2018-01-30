@@ -1,0 +1,128 @@
+Slide 0:
+Hello everybody,
+My name is Cristóbal Medina. I'm a PhD student in computer science at University of Almeria.
+Today, I want to talk about mitigating pollution and free riding attacks using sharmir secret sharing.
+
+Slide 1:
+This presentation is available online at slides.p2psp.org.
+
+Slide 2:
+First, we are going to talk about P2PSP.
+Second, what Pollution attacs are.
+After that we'll introduce our trusted peer approach.
+Next, our proposal,
+and Finally the conlusions.
+
+Slide 3,4:
+First, What is the P2PSP protocol?
+- It's an application layer protocol for the real-time streaming of multimedia content over the Internet.
+- Where every peer is connected each other following a fully connected mesh scheme.
+- An open source implementation is available on GitHub at github.com/P2PSP
+- The main entities in a P2PSP system are: peers, players, one splitter and one source.
++ How does it work?
+
+slide 5:
+The source records the video and sends it in real time to the splitter.
+
+slide 6,7,8,9:
+The Splitter divides the stream in several chunks and every chunk is sent to one different peer.
+In this case, the splitter sends the chunk number 1 to peer 1, 2 to peer 2, 3 to peer 3, 4 to peer 1, 5 to peer 2 and so on.
+
+slide 10:
+Each peer sends its chunks to each others in order to everyone have the whole stream.
+Note that only the chunks that each peer receives from the splitter will be retransmitted.
+
+slide 11:
+Finally, the peers send the stream to the players.
+
+slide 12,13:
+What are pollution attacks?
+A pollution attack describes a situation where a peer or a set of peers try to modify the content of a stream. We can find different kind of attacks.
+
+Slide 14:
+The most complex attack is a combination of several of them, for example:
+- Persistent: when an attacker poisons every chunk received from the splitter.
+- Selective: the attacker only attacks some peers and not other.
+- Collaborative: attackers can work together in order to cause a big damage.
+After an attack the peers involved don't communicate anymore.
+
+slide 15:
+We proposed a strategy in order to mitigate the impact of these attacks using Trusted Peers.
+
+slide 16:
+The main aim in this strategy is to mitigate attacks and to identify poisoned chunks by using digital signatures.
+
+slide 17:
+First, when a peer joins to the team, the splitter sends him his public key.
+
+slide 18:
+For each chunk the splitter sends a message including the chunk, the number of chunk, the destination address and a digital signature of the message.
+
+slide 19:
+When a peer receives a chunk from other peer, it verifies the destination address and check if the hash value is correct.
+
+slide 20:
+The splitter periodically requests the list of removed peers to Trusted peers.
+
+slide 21:
+Peers removed by a TP are expelled by the splitter after a ramdom time. The idea is to disasociate the action of the Malicious peer with the Trusted peer.
+
+slide 22:
+So, Can trusted peers expel all malicious peers by following these basic rules?
+
+slide 23:
+Let's see it with experiments.
+
+slide 24, 25:
+These results were obtained by simulation with a simulator available on GitHub. It's free software too.
+We can see three situations:
+1. When the number of TPs is greater than MPs the attack is completely mitigated.
+2. When the number of TPs is equal to MPs the attack is mitigated too.
+3. When the number of TPs is less than MPs the attack is not mitigated.
+
+slide 26:
+Since we need a high number of TPs to expel malicious, we propose a new approach to improve the previous one.
+
+slide 27:
+The idea is very simple: "if you want to remain in the team you must have a good behaviour with at least t peers".
+And we can get it using the Shamir secret sharing algorithm.
+- For each round, the splitter generates a vector of secret keys (one per chunk) and a matrix of shares (a share per peer and secret key).
+
+slide 28:
+- The splitter sends a this message:
+  + a chunk cipher with the secret key for that chunk, which shares to get it were sent in the previous round.(explain it)
+  + a list of shares needed for the rest of the team to get the secret key (one share per each chunk of that round).
+So, the shares to get the secret for a chunk in P2 are sent from P1 and P3.
+
+slide 29:
+- The peer reconstructs the secret key using the shares of the previous round, get the signature of the chunks and verifies it.
+- If it has not a enougth quantity of shares to decrypt the secret (t), the only option is send a polluted message or not send anything to the whole team.
+So it will be detected by a TP.
+
+slide 30:
+- Each peer share its chunk with the signature descrypted, and with a share for the chunk of that peer (for the next round).
+
+slide 31:
+- The peer verifies the signature of the message and saves the share.
+
+slide 32:
+We think...
+
+slide 33:
+.. that it will work fine in the most dangerous attack using only one TP.
+a. One MP to many peers: if we use a t=6, we expell all peers because they cannot reconstruct the secret and they attack the entire team.
+b. One to One: Using a t=6 we don't expel the MPs, but the impact of the attack is very low.
+c. If MPs do Many to one attacks, they could expel WIPs, however, it could be easy to detect after MPs repeat a few times the attack.
+
+slide 34, 35:
+Conclusions.
+- With our proposal the most severe attack is fully mitigated using only one TP and the overhead shown.
+- The rest of attacks have a low impact, and they could be improved increasing the number of TPs.
+- The optimun value for t is the number of WIPs. So, we could design an adaptative algorithm to estimate it.
+
+slide 34:
+Thank you very much!
+Any questions?
+
+
+
