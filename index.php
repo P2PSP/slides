@@ -25,7 +25,7 @@
   	margin: auto;
       }
       .content{
-	width: 90%;
+	width: 85%;
 	}
       .slide{
 	width: 320px;
@@ -40,7 +40,7 @@
     <div class="title">
     	<h1>P2PSP Slides</h1>
 	<h2>Enjoy the P2PSP slides on the Web</h2>
-	<p>Get the <a href="https://github.com/P2PSP/slides">source code</a>!</p>
+	<span>Get the <a href="https://github.com/P2PSP/slides">source code</a>!</span>
     </div>
   </div>
   <hr>
@@ -53,7 +53,9 @@
 		<a href="<?php echo $dir.'/index.html'; ?>">
 		<div class="slide">
 		<img width="300px" src="<?php echo $dir.'/snapshot.png'; ?>">
-		<h3><?php echo $dir ;?></h3>
+		<?php list($year, $month, $name) = explode("-", $dir); ?>
+		<h3><?php echo $name; ?></h3>
+		<span><?php echo $month."-".$year; ?></span>
 		</div>
 		</a>
   <?php
