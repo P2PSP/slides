@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="utf-8">    
+    <title>Ejecutando Peers P2PSP en Google Chromecast</title>    
+    <link rel="stylesheet" href="./reveal.min.css">
+    <style>
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.3); 
+  height: 10px; 
+}
+
+.reveal .progress span {
+  background: #045FB4;
+}
+
+.reveal .selection{
+	background: #380B61;
+}
+.reveal h1 {color: #045FB4;}
+.reveal h2 {text-align: justify;}
+.reveal .slide-number{font-size: 36px;}
+
+.visible{height:auto;}
+.invisible{height:0;}
+
+::selection{ background: #CCC;}
+
+    </style>
+  </head>
+  
+  <body>
+    
+    <div class="reveal">      
+      <div class="slides">
+	  
+	<section>
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="350" />
+		<br/><br/>
+		<div style="background-color:#CCC; padding:5px;">
+			<h2 style="color:#494f77;text-decoration: none;">Un protocolo open source para streaming de contenido en directo</h2>
+		</div>
+		<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-globe.png" alt="email" height="80" /><br />
+			<a style="color:#6E6E6E; font-size: x-large;text-decoration: none;" href="http://www.p2psp.org">www.p2psp.org</a>
+		</div>
+		<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-envelope.png" alt="email" height="80" /><br />
+			<a style="color:#494f77; font-size: x-large;text-decoration: none;" href="mailto:info@p2psp.org">info@p2psp.org</a>
+		</div>
+		<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-google-plus.png" alt="email" height="80" /><br />
+			<a style="color:#B40404; font-size: x-large;text-decoration: none;" href="http://gplus.p2psp.org">gplus.p2psp.org</a>
+		</div>
+<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-television.png" alt="email" height="80" /><br />
+			<a style="color:#c38804; font-size: x-large;text-decoration: none;" href="http://slides.p2psp.org">slides.p2psp.org</a>
+		</div>
+		<div style="float:left; width:20%;">
+			<br />
+			<img src="images/fa-github.png" alt="email" height="80" /><br />
+			<a style="color:#000; font-size: x-large;text-decoration: none;" href="http://code.p2psp.org">code.p2psp.org</a>
+		</div>
+	</section>
+	
+	
+	<section>
+
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="150" /><br />
+		<ul>
+			<li class="fragment">
+				<h2><a href="http://www.p2psp.org/">P2PSP (Peer to Peer Straightforward Protocol)</a> es un protocolo de la capa de aplicación para la transmisión de contenido en tiempo real a través de Internet mediante una red peer-to-peer.</h2>
+			</li>
+			<br />
+			<li class="fragment">	
+				<h2>Cada peer P2PSP se comunica con el resto de peers, formando un grafo totalmente conectado.</h2>
+			</li>
+			<br />
+			<li class="fragment">
+				<h2>Una implementación bajo una licencia de software libre (<a href="https://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>) está disponible en <a href="https://github.com/p2psp">
+			  	GitHub</a>.<br /><br />
+				<center><a href="http://www.google-melange.com/gsoc/org2/google/gsoc2015/p2psp"><img src="images/gsoc.jpg" height="100px"/><br /><span style="font-size:x-large;"> P2PSP.org en el Google Summer of Code 2015</span></a></center>
+				</h2>
+			</li>
+	    </ul>
+
+	</section>
+
+	<section>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+	
+ 	</section>
+
+	<!-- animation --> 
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-1.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+	
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-2.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-2-2.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-2-3.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-2-4.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-3.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		<div ><h3><b>3.</b> Cada peer envía sus trozos al resto de peers con el fin de que todos tengan el stream completo.</h3></div><br />
+	
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-4.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		<div ><h3><b>3.</b> Cada peer envía sus trozos al resto de peers con el fin de que todos tengan el stream completo.</h3></div><br />
+		<div><h3><b>4.</b> Los peers envían el stream al player.</h3></div>
+ 	</section>
+	<!-- end of animation --> 
+
+	<section>
+
+		
+		<h1>Estado de la implementación</h1><br />
+		<h2></h2> <br />
+		<ul>
+			<li class="fragment">
+				<h2>IMS: El splitter puede hacer uso de Multicast si está disponible. <br /><font color="green">Implementado</font>.</h2>
+			</li>
+			<br />
+			<li class="fragment">	
+				<h2>DBS: El splitter envía un chunk diferente a cada uno. Los peer comparten la misma cantidad de datos. <br /><font color="green">Implementado</font>.</h2>
+			</li>
+			<br />
+<li class="fragment">	
+				<h2>ACS: El splitter envía menos chunk a los peer con menos ancho de banda y viceversa. <br /><font color="green">Implementado</font>.</h2>
+			</li><br />
+<li class="fragment">	
+				<h2>LRS: El splitter retrasmite chunks perdidos. <br /><font color="green">Implementado</font>.</h2>
+			</li><br />
+<li class="fragment">	
+				<h2>NTS: El protocolo funciona atravesando la mayoría de los NAT en Internet. <br /><font color="green">Implementado</font>.</h2>
+			</li><br />
+	     </ul>
+
+	</section>
+	<section>
+
+		
+		<h1>Estado de la implementación</h1><br />
+		<h2></h2> <br />
+		<ul>
+<li class="fragment">	
+				<h2>EMS: Los peers en la misma red pueden compartir datos usando su IP privada. <br /><font color="orange">Parcialmente implementado</font>.</h2>
+			</li><br />
+<li class="fragment">	
+				<h2>CIS: El splitter detecta y expulsa a peer maliciosos envenenando el stream. <br /><font color="orange"> Parcialmente implementado</font>.</h2>
+			</li><br />
+<li class="fragment">	
+				<h2>DPS: El contenido se comparte protegido para que solo los peers autorizados tengan acceso. <br /><font color="red"> No implementado</font>.</h2>
+			</li><br />
+<li class="fragment">	
+				<h2>MCS: Posibilidad de transmitir más de un canal al mismo team. <br /><font color="red">No implementado</font>.</h2>
+			</li><br />
+	     </ul>
+
+	</section>	
+
+	
+	<section data-background="images/preguntas.png">
+  		
+		<h1>Gracias!</h1><br />
+   
+ 	</section>
+     
+    </div>    
+    <script src="./reveal.min.js"></script>
+    
+    <script>
+      
+      Reveal.initialize({
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true//,
+      //theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      });
+
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-42660390-1', 'p2psp.org');
+		ga('send', 'pageview');
+
+	</script>
+    
+  </body>
+</html>

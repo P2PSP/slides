@@ -1,0 +1,8 @@
+publish:	snapshot.png
+	rsync -avz * slides@5.196.10.234:GSoC-Program
+
+snapshot.png:		index.html
+	phantomjs rasterize.js index.html snapshot.png
+
+clean:
+	rm -r snapshot.png
