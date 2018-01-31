@@ -1,0 +1,9 @@
+publish:	snapshot.png
+	rsync -avz * slides@slides.p2psp.org:JCE15
+
+snapshot.png:		index.html
+	phantomjs rasterize.js index.html snapshot.png
+
+clean:
+	rm -r snapshot.png
+

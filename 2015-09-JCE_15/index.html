@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="utf-8">    
+    <title>Ejecutando Peers P2PSP en Google Chromecast</title>    
+    <link rel="stylesheet" href="./reveal.min.css">
+    <style>
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.3); 
+  height: 10px; 
+}
+
+.reveal .progress span {
+  background: #045FB4;
+}
+
+.reveal .selection{
+	background: #380B61;
+}
+.reveal h1 {color: #045FB4;}
+.reveal h2 {text-align: justify;}
+.reveal .slide-number{font-size: 36px;}
+
+.visible{height:auto;}
+.invisible{height:0;}
+
+::selection{ background: #CCC;}
+
+    </style>
+  </head>
+  
+  <body>
+    
+    <div class="reveal">      
+      <div class="slides">
+	  
+	<section>
+
+		<h1 style="font-size: 40px;">Ejecutando Peers P2PSP en Google Chromecast</h1> <br />
+		<h2 style="text-align:center;">Cristóbal Medina-López, 
+		 				Vicente González-Ruiz,
+						L.G. Casado,
+						J.A.M. Naranjo y 
+						Juan Pablo García-Ortíz.</h2><br /><br />
+					
+		<img src="images/logoual.gif" alt="UAL" height="220"><br /><br />
+		<h3> 
+			<b>Department of Informatics</b> <br /> 
+			University of Almería <br /> 
+			Spain 
+		</h3><br />
+		<img src="images/sal.png" alt="SAL" height="70">
+		<img src="images/feder.png" alt="Feder" height="70">
+		<img src="images/gobierno.jpg" alt="Gobierno de España" height="70">
+		<img src="images/junta.png" alt="Junta de Andalucia" height="70">
+		<img src="images/ceia3.jpg" alt="CEIA3" height="70">
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="70" />
+
+	</section>
+
+	<section>
+
+		<h1>Sigue la presentación en la Web</h1><br />
+		<h2><center>URL para seguir las diapositivas:<br /><br />
+		<a style="color: red; text-align:center;" href="http://slides.p2psp.org/JCE15/">http://slides.p2psp.org/JCE15/</a></li></h2> <br /><br />
+		<img src="images/diapositivas.png" alt="Diapositivas" height="250" />
+
+	</section>
+	
+	
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2><li>P2PSP</li></h2>
+		<ul>
+		<h2><li>¿Qué es?</li></h2>
+		<h2><li>Funcionamiento</li></h2>
+                </ul>
+		<h2><li>Google Chromecast</li></h2>
+		<ul>
+		<h2><li>¿Qué es?</li></h2>
+		<h2><li>Funcionamiento</li></h2>
+		<h2><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2><li>P2PSP en Chromecast</li></h2>
+		<ul>	
+		<h2><li>¿Por qué?</li></h2>	
+		<h2><li>Implementación</li></h2>
+		<h2><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2><li>P2PSP</li></h2>
+		<ul>
+		<h2><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Google Chromecast</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+		<h2 style="color:#CCC;"><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>P2PSP en Chromecast</li></h2>
+		<ul>	
+		<h2 style="color:#CCC;"><li>¿Por qué?</li></h2>		
+		<h2 style="color:#CCC;"><li>Implementación</li></h2>
+		<h2 style="color:#CCC;"><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 style="color:#CCC;"><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<img src="images/p2pspsf.png" alt="P2PSP protocol" height="150" /><br />
+		<ul>
+			<li class="fragment">
+				<h2><a href="http://www.p2psp.org/">P2PSP (Peer to Peer Straightforward Protocol)</a> es un protocolo de la capa de aplicación para la transmisión de contenido multimedia en tiempo real a través de Internet mediante una red peer-to-peer.</h2>
+			</li>
+			<br />
+			<li class="fragment">	
+				<h2>A nivel de team, cada peer P2PSP se comunica con el resto de peers, formando un grafo totalmente conectado. Los teams se organizan en árbol.</h2>
+			</li>
+			<br />
+			<li class="fragment">
+				<h2>Una implementación bajo una licencia de software libre (<a href="https://www.gnu.org/copyleft/gpl.html">GNU GPL v3</a>) está disponible en <a href="https://github.com/p2psp">
+			  	GitHub</a>.<br /><br />
+				<center><a href="http://www.google-melange.com/gsoc/org2/google/gsoc2015/p2psp"><img src="images/gsoc.jpg" height="100px"/><br /><span style="font-size:x-large;"> P2PSP.org en el Google Summer of Code 2015</span></a></center>
+				</h2>
+			</li>
+	    </ul>
+
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2><li>P2PSP</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Google Chromecast</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+		<h2 style="color:#CCC;"><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>P2PSP en Chromecast</li></h2>
+		<ul>	
+		<h2 style="color:#CCC;"><li>¿Por qué?</li></h2>		
+		<h2 style="color:#CCC;"><li>Implementación</li></h2>
+		<h2 style="color:#CCC;"><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 style="color:#CCC;"><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+	
+ 	</section>
+
+	<!-- animation --> 
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-1.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+	
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-2.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-2-2.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-2-3.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-2-4.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-3.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		<div ><h3><b>3.</b> Cada peer envía sus trozos al resto de peers con el fin de que todos tengan el stream completo.</h3></div><br />
+	
+ 	</section>
+	<section data-transition=none>
+  		
+		<h1>¿Cómo funciona el protocolo P2PSP?</h1><br />
+		<h2><center>Un Team P2PSP</li></h2> <br />
+		<img src="images/team-modern-4.svg" alt="A P2PSP Team" align="left" height="500" style="margin:5px"/> <br />
+		<div><h3><b>1.</b> El vídeo se envía en tiempo real al splitter.</h3></div><br />
+		<div><h3><b>2.</b> El Splitter recibe el stream , lo segmenta en chunks y envía cada uno de ellos a un peer distinto.</h3></div><br />
+		<div ><h3><b>3.</b> Cada peer envía sus trozos al resto de peers con el fin de que todos tengan el stream completo.</h3></div><br />
+		<div><h3><b>4.</b> Los peers envían el stream al player.</h3></div>
+ 	</section>
+	<!-- end of animation --> 
+
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 ><li>Google Chromecast</li></h2>
+		<ul>
+		<h2><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+		<h2 style="color:#CCC;"><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>P2PSP en Chromecast</li></h2>
+		<ul>		
+		<h2 style="color:#CCC;"><li>¿Por qué?</li></h2>	
+		<h2 style="color:#CCC;"><li>Implementación</li></h2>
+		<h2 style="color:#CCC;"><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 style="color:#CCC;"><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>Google Chromecast</h1><br />
+		<h2>Google Chromecast (GC) es un pequeño dispositivo de bajo coste y consumo, que conectado a una pantalla o a un televisor a través del puerto HDMI puede ampliar sus capacidades con conexión a Internet y reproducción de contenido multimedia en alta definición.</h2><br />
+		<img src="images/chromecast.svg" alt="Dispositivo Chromecast" align="center" height="200" style="margin:5px"/>
+	</section>	
+
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 ><li>Google Chromecast</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2><li>Funcionamiento</li></h2>
+		<h2 style="color:#CCC;"><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>P2PSP en Chromecast</li></h2>
+		<ul>		
+		<h2 style="color:#CCC;"><li>¿Por qué?</li></h2>	
+		<h2 style="color:#CCC;"><li>Implementación</li></h2>
+		<h2 style="color:#CCC;"><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 style="color:#CCC;"><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+
+        <section data-background="images/publichromecast.png">
+		<!-- Fondo de pantalla de la publicidad de chromecast -->
+	</section>	
+
+	<section>
+		<h1>¿Cómo funciona?</h1><br />
+		<img src="images/chromecastworking.png" alt="Chromecast en Cast developers" align="center" height="600" style="margin:5px"/>
+	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Google Chromecast</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+		<h2><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>P2PSP en Chromecast</li></h2>
+		<ul>		
+		<h2 style="color:#CCC;"><li>¿Por qué?</li></h2>	
+		<h2 style="color:#CCC;"><li>Implementación</li></h2>
+		<h2 style="color:#CCC;"><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 style="color:#CCC;"><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+    		<h1>Tecnologías que incorpora</h1><br /><br />
+		<div style="float:left; width:33%;" class="fragment">
+			<img src="images/languages.png" alt="HTML5" height="200" />
+		</div>
+		<div style="float:left; width:33%;" class="fragment">
+			<img src="images/webrtc.png" alt="WebRTC" height="200" />
+		</div>
+		<div style="float:left; width:33%;"  class="fragment">
+			<br /><br /><br /><br />	
+			<h1><b>MSE</b></h1>
+		</div>
+  	</section>
+
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Google Chromecast</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+		<h2 style="color:#CCC;"><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2><li>P2PSP en Chromecast</li></h2>
+		<ul>		
+		<h2><li>¿Por qué?</li></h2>	
+		<h2 style="color:#CCC;"><li>Implementación</li></h2>
+		<h2 style="color:#CCC;"><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 style="color:#CCC;"><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+    		<h1> ¿Por qué Chromecast?</h1><br />
+     		<div class="fragment">
+     		<div style="float:left;"><img src="images/easy.png" alt="Fácil de usar" height="70px" /></div><h2><b>Fácil de usar:</b> acceder al contenido es tan simple como enviar la orden desde un dispositivo secundario como un smartphone, tablet u ordenador.</h2>
+		</div>
+		<br /><br />
+		<div class="fragment">
+		<div style="float:left;"><img src="images/html5.png" alt="HTML5" height="80px" /></div><h2><b>Etiqueta &lt;video&gt;:</b> permite incrustar contenido multimedia directamente, sin necesidad de plugins.</h2>
+		</div>
+		<br /><br />
+		<div class="fragment">
+		<div style="float:left;"><img src="images/webrtc1.png" alt="WebRTC" height="80px" /></div><h2><b>WebRTC:</b> define los recursos PeerConnection y DataChannel. Juntos, permiten establecer un canal de datos bidireccional entre los navegadores mediante socket sobre UDP.</h2>
+		</div>
+  	</section>
+		
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Google Chromecast</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+		<h2 style="color:#CCC;"><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2><li>P2PSP en Chromecast</li></h2>
+		<ul>		
+		<h2 style="color:#CCC;"><li>¿Por qué?</li></h2>	
+		<h2><li>Implementación</li></h2>
+		<h2 style="color:#CCC;"><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 style="color:#CCC;"><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+		<h1>Implementación</h1><br />
+		<h2><center>Modelo clásico de streaming en Chromecast</li></h2> <br />
+		<img src="images/cs-chromecast.svg" alt="Cliente/servidor en Chromecast" align="center" height="550" style="margin:5px"/> <br />
+	
+ 	</section>
+
+	<section>
+		<h1>Implementación</h1><br />
+		<h2><center>Un Team P2PSP en Chromecast</li></h2> <br />
+		<img src="images/p2psp-chromecast.svg" alt="Team P2PSP en Chromecast" align="center" height="550" style="margin:5px"/> <br />
+	
+ 	</section>
+	<section>
+  		
+		<h1>Implementación</h1><br />
+		<h2><center>Arquitectura de un peer P2PSP corriendo en Chromecast</li></h2> <br />
+		<img src="images/gc-p2psp-schema.svg" alt="Arquitectura peer en chromecast" align="center" height="550" style="margin:5px"/> <br />
+	
+ 	</section>
+
+	
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Google Chromecast</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+		<h2 style="color:#CCC;"><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2><li>P2PSP en Chromecast</li></h2>
+		<ul>		
+		<h2 style="color:#CCC;"><li>¿Por qué?</li></h2>	
+		<h2 style="color:#CCC;"><li>Implementación</li></h2>
+		<h2><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 style="color:#CCC;"><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+    		<h1>Limitaciones</h1><br />
+		<h2><center>Áreas que necesitan mejorar</center></h2><br />
+     		<div class="fragment">
+     		<div style="float:left;"><h2><b>Dependencia del contenido</b> ya que existen formatos de vídeo no soportados en Chromecast.</h2><br />
+		</div>
+		<br /><br />
+		<div class="fragment">
+		<div style="float:left;"><h2><b>MSE</b> no es un estándar.</h2><br />
+		</div>
+		<br /><br />
+		<div class="fragment">
+		<div style="float:left;"><h2><b>WebRTC</b> es suceptible a cambios por no ser aún un estándar.</h2><br />
+		</div>
+		<br /><br />
+		<div class="fragment">
+		<div style="float:left;"><h2><b>Límite de PeerConnection</b> en la implementación en Chrome.</h2><br />
+		</div>
+		<br /><br />
+		<div class="fragment">
+		<div style="float:left;"><h2><b>El proceso de señalización</b> complica el protocolo P2PSP debido al intercambio de los mensajes SDP.</h2><br />
+		</div>
+		<br /><br />
+		<div class="fragment">
+		<div style="float:left;"><h2><b>El uso de servidores STUN y TURN</b> peers detrás de NAT no sigue la filosofía de comunicación distribuida de las redes P2P.</h2>
+		</div>
+  	</section>
+
+
+	<section>
+		<!-- INDICE -->
+		<h1>Índice de contenidos</h1><br />
+		<ul>
+		<h2 style="color:#CCC;"><li>P2PSP</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+                </ul>
+		<h2 style="color:#CCC;"><li>Google Chromecast</li></h2>
+		<ul>
+		<h2 style="color:#CCC;"><li>¿Qué es?</li></h2>
+		<h2 style="color:#CCC;"><li>Funcionamiento</li></h2>
+		<h2 style="color:#CCC;"><li>Tecnologías que incorpora</li></h2>
+                </ul>
+		<h2><li>P2PSP en Chromecast</li></h2>
+		<ul>		
+		<h2 style="color:#CCC;"><li>¿Por qué?</li></h2>	
+		<h2 style="color:#CCC;"><li>Implementación</li></h2>
+		<h2 style="color:#CCC;"><li>Limitaciones</li></h2>
+		</ul>                
+		<ul>
+		<h2 ><li>Conclusiones</li></h2>
+		</ul>
+	</section>
+
+	<section>
+
+		<h1>Conclusiones</h1><br />
+		<h2 class="fragment">1. Los dispositivos con recursos limitados que pueden ejecutar un navegador Web como mozilla o Chrome también pueden ser usados para el streaming P2P.</h2><br /><br />
+		<h2 class="fragment">2. La estandarización y popularización de tecnologías como WebRTC, la mejora de los formatos multimedia y las futuras soluciones para peer detrás de NAT simplificarán el desarrollo de sistemas de streaming P2P heterogéneos.</h2><br />
+
+	</section>
+	
+	<section data-background="images/preguntas.png">
+  		
+		<h1>Gracias!</h1><br />
+   
+ 	</section>
+     
+    </div>    
+    <script src="./reveal.min.js"></script>
+    
+    <script>
+      
+      Reveal.initialize({
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true//,
+      //theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      });
+
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-42660390-1', 'p2psp.org');
+		ga('send', 'pageview');
+
+	</script>
+    
+  </body>
+</html>
