@@ -1,0 +1,8 @@
+publish:	snapshot.png
+	rsync -avz * slides@slides.p2psp.org:2015-06-CISIS
+
+snapshot.png:	index.html
+	phantomjs ../rasterize.js index.html snapshot.png 250px*250px
+
+clean:
+	rm -r snapshot*.png

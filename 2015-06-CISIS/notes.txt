@@ -1,0 +1,141 @@
+Slide 0:
+Hello everybody,
+My name is Cristóbal Medina. I'm studying a master degree in computer science at University of Almeria. Today, I want to talk about the pollution attacks detection in the P2PSP live streaming system.
+
+Slide 1:
+This presentation is available online at slides.p2psp.org.
+
+Slide 2:
+First, What is the P2PSP protocol?
+- It's an application layer protocol for the real-time streaming of multimedia content over the Internet.
+- Where every peer is connected each other following a fully connected mesh scheme.
+- You can find an open source implementation available on GitHub at github.com/P2PSP
+
+slide 3:
+The main entities in a P2PSP system are: peers, players, one splitter and one source.
+How does it work?
+
+slide 4:
+The source records the video and sends it in real time to the splitter.
+
+slide 5:
+The Splitter divides the stream in several chunks and every chunk is sent to one different peer. In this case, the splitter sends the chunk number 1 to peer 1, 2 to peer 2, 3 to peer 3, 4 to peer 1, 5 to peer 2 and so on.
+
+slide 6:
+Each peer sends its chunks to each others in order to everyone have the whole stream. Note that only the chunks that each peer receives from the splitter will be retransmitted.
+
+slide 7:
+Finally, the peers send the stream to the players.
+
+slide 8:
+What are pollution attacks?
+A pollution attack describes a situation where a peer or a set of peers try to modifying the content of a stream. We can find different kind of attacks:
+- Persistent attack: when an attacker poisons every chunk received from the splitter and sends them to the entire team. It's not a common attack because it's very easy to detect.
+- On-Off attack: when the attacker poisons some chunks and not other. It's a trick to remain longer time into the team.
+- Selective attack: in order to avoid being detected quickly, the attacker only attacks some peers and not other.
+- Collaborative attack: attackers can work together in order to cause a big damage.
+- Hand-wash attack: it's leave the team and after that, join again with a different alias. Doing this, the attacker resets his reputation to 0.
+- bad-mouth attack: It consists of blaming others well-intended peer of sending poisoned or not send chunks.
+
+slide 9:
+We propose two different strategies in order to mitigate the impact of pollution and related attacks.
+- First one using trusted peers.
+- Second one using trusted peers and digital signatures.
+
+slide 10:
+The strategy based on trusted peers consist of introducing into the team one or several trusted peers.
+
+slide 11:
+An important thing in this strategy is keep secret the identity of the trusted peer so that only the splitter knows who the trusted peer is.
+
+slide 12:
+Each trusted peer creates a hash digest for each chunk including the chunk number and the address of who sent it. After that, the trusted peer sends it to the splitter.
+
+slide 13:
+When the splitter receive the message from the trusted peer, it checks whether the chunks have been altered.
+
+slide 14:
+The splitter knows who is the peer in charge of relaying a given chunk. Thus, the splitter can detect who is an attacker.
+
+slide 15:
+In order to expel the attacker from the team, the splitter removes it from his peers list. This implies that no more chunks will be send to it.
+
+slide 16:
+Unfortunately, this strategy has some problems:
+- peers don't know if they are being poisoned.
+- If an attacker knows who are the trusted peers then the system is completely vulnerable to selective attacks.
+
+slide 17:
+An evolution of the strategy based on trusted peers is the strategy based on trusted peers and digital signatures. The main aim in this strategy is to mitigate the selective attack and to identify poisoned chunks by using digital signatures.
+
+slide 18:
+First, when a peer joins to the team, the splitter sends him his public key.
+
+slide 19:
+For each chunk the splitter sends a message including the chunk, the number of chunk, the destination address and a digital signature of the message.
+
+slide 20:
+When a peer receives a chunk from other peer, it checks the correctness of the hash value. If the hash of the  chunk or the destination address don't match, the peer removes from his list to the peer who send it the message.
+
+slide 21:
+The splitter periodically requests the list of removed peers to entire team.
+
+slide 22:
+If a peer attacks to a trusted peer it will be immediately expelled from the team. To do this, the trusted peer sends a message to the splitter indicating the attacker.
+
+slide 23:
+the splitter has to decide to expel an attacker based on the information received from well-intended or attackers peers.
+
+slide 24:
+Here, we can also find a big problem:
+- make a decision to expel to the attacker is not an easy task.
+
+slide 25:
+So, How to make a decision about expelling attackers peers from the team?
+- Let suppose this scenery. Three peers are claiming to the splitter that peer A has attacked them. Maybe you can think that it's easy for the splitter to decide in this case. If most peers say that it must be true. but... 
+- what about this scenery? For the splitter is the same situation, but know are three attackers doing bad mouth about one well-intended peer.
+So, it's difficult for the splitter to know what is the real situation. Currently there is two main approaches trying to resolve this issue.
+
+slide 26:
+On one hand we have the non-repudiation methods which goal is provide proof of the integrity and origin of data. We can find different strategies.
+
+slide 27:
+Based on trusted third parties where all traffic passes through a trusted server. The problem is that it's not in consonance with the P2P philosophy.
+
+slide 28:
+There are non-repudiation methods without TTPs but consider that both parties are interested in the content and the number of necessary messages is usually high. Unfortunately the attacker is interested in poisoning the content but not in the content itself.
+
+slide 29:
+So, there is not currently a suitable non-repudiation system allowing to the splitter to decide who is the attacker.
+
+slide 30:
+Due to the absence of a suitable non-repudiation system, trust-based methods are usually the most used solution.
+
+slide 31:
+Some of this methods are based on statistical models.
+
+slide 32:
+others in bayesian networks.
+
+slide 33:
+machine learning
+
+slide 34:
+etcetera
+
+slide 35:
+The main problem here is the false-positive and false-negative results.
+
+slide 36:
+but... What if exist a method which avoid false-positive and false-negative results?
+- a method without trusted third parties.
+- with a fast convergence.
+- and with a hundred percent of success.
+We think that method exist and we are working on it.
+
+slide 37:
+Thank you very much!
+Any questions?
+
+
+
