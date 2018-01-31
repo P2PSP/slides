@@ -13,6 +13,10 @@
 	color: #9E9E9E;
 	padding-top: 5px;
       }
+      h2,h3{
+        margin: 0;
+        padding: 0;
+      }
       hr { 
 	height: 5px;
         color: gray;
@@ -31,6 +35,9 @@
 	width: 320px;
 	text-align: center;
 	float: left;
+      }
+      .date{
+        color: gray;
       }
    </style>
  </head>
@@ -55,7 +62,7 @@
 		<img width="300px" src="<?php echo $dir.'/snapshot.png'; ?>">
 		<?php list($year, $month, $name) = explode("-", $dir); ?>
 		<h3><?php echo $name; ?></h3>
-		<span><?php echo $month."-".$year; ?></span>
+		<span class="date"><?php echo $month."-".$year; ?></span>
 		</div>
 		</a>
   <?php
