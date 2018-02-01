@@ -54,7 +54,7 @@
   <div class="content center">
    
   <?php
-   foreach (scandir(".") as $dir) {
+   foreach (scandir(".",1) as $dir) {
         if ( substr($dir, 0,1) === "2") {
   ?>
 		<a href="<?php echo $dir.'/index.html'; ?>">
