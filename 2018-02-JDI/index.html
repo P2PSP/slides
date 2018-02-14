@@ -34,6 +34,10 @@
 color: #000;
 }
 
+.left{
+text-align: left;
+}
+
 ::selection{ background: #CCC;}
 
     </style>
@@ -495,7 +499,7 @@ color: #000;
 		<h1>Estrategia basada en Trusted Peers y Shamir's Secret Sharing</h1><br />
 		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
 		<img src="images/sss-1.svg" alt="TP-SSS" align="left" height="500" style="margin:5px"/> <br />	
-		<div><h3><b>1.</b>El Splitter envía un mensaje $eSP^r_{j,i}$.</h3><br />
+		<div class="left"><h3><b>1.</b>El Splitter envía un mensaje $eSP^r_{j,i}$.</h3><br />
 		<ul>
 		<li><h4>$eSP^r_{j,i}=\{eCH^r_{j,i},\ SH^{r+1}_i\}$</h4></li>
 		<ul>
@@ -511,7 +515,7 @@ color: #000;
 		<h1>Estrategia basada en Trusted Peers y Shamir's Secret Sharing</h1><br />
 		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
 		<img src="images/sss-2.svg" alt="TP-SSS" align="left" height="500" style="margin:5px"/> <br />	
-		<div ><h3><b>1.</b>El Splitter envía un mensaje  $eSP^r_{j,i}$.</h3><br />
+		<div class="left"><h3><b>1.</b>El Splitter envía un mensaje  $eSP^r_{j,i}$.</h3><br />
 		<ul>
 		<li><h4>$eSP^r_{j,i}=\{eCH^r_{j,i},\ SH^{r+1}_i\}$</h4></li>
 		<ul>
@@ -521,7 +525,7 @@ color: #000;
 		<li><h4>$\{SH^{r+1}_i\}_q=\{P_i,P_q, r+1, A^{r+1}_{q,i},S_{pr}(H(P_i||P_q||r+1||A^{r+1}_{q,i}))\}$</h4></li>
 		</ul></ul></ul>
 		 </div>
-		<div ><h3><b>2.</b>El peer reconstruye $K^r_i$, descifra el mensaje y verifica la firma.</h3></div><br />
+		<div class="left"><h3><b>2.</b>El peer reconstruye $K^r_i$, descifra el mensaje y verifica la firma.</h3></div><br />
 
 	</section>
 	<section data-transition=none>
@@ -529,7 +533,7 @@ color: #000;
 		<h1>Estrategia basada en Trusted Peers y Shamir's Secret Sharing</h1><br />
 		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
 		<img src="images/sss-3.svg" alt="TP-SSS" align="left" height="500" style="margin:5px"/> <br />		
-		<div><h3><b>1.</b>El Splitter envía un mensaje $eSP^r_{j,i}$.</h3><br />
+		<div class="left"><h3><b>1.</b>El Splitter envía un mensaje $eSP^r_{j,i}$.</h3><br />
 		<ul>
 		<li><h4>$eSP^r_{j,i}=\{eCH^r_{j,i},\ SH^{r+1}_i\}$</h4></li>
 		<ul>
@@ -539,8 +543,8 @@ color: #000;
 		<li><h4>$\{SH^{r+1}_i\}_q=\{P_i,P_q, r+1, A^{r+1}_{q,i},S_{pr}(H(P_i||P_q||r+1||A^{r+1}_{q,i}))\}$</h4></li>
 		</ul></ul></ul>
 		 </div>
-		<div><h3><b>2.</b>El peer reconstruye $K^r_i$, descifra el mensaje y valida la firma.</h3></div><br />
-		<div><h3><b>3.</b>El peer envía el mensaje descifrado.</h3><br />
+		<div class="left"><h3><b>2.</b>El peer reconstruye $K^r_i$, descifra el mensaje y valida la firma.</h3></div><br />
+		<div class="left"><h3><b>3.</b>El peer envía el mensaje descifrado.</h3><br />
 		<ul>
 		<li><h4>$PP^r_{i,q}=\left\{CH^r_{j,i},\ \{SH^{r+1}_i\}_q \right\}$</h4></li>
 		<ul><li><h4>$CH^r_{j,i} = \{C_j, j, P_i, r, S_{pr}(H(C_j||j||P_i||r))\}$</h4></li></ul>
@@ -552,7 +556,7 @@ color: #000;
 		<h1>Estrategia basada en Trusted Peers y Shamir's Secret Sharing</h1><br />
 		<!-- So, any peer is able to know if a chunk was poisoned and/or relayed by a different peer than the one in charge of it -->
 		<img src="images/sss-4.svg" alt="TP-SSS" align="left" height="500" style="margin:5px"/> <br />		
-		<div><h3><b>1.</b>El Splitter envía un mensaje $eSP^r_{j,i}$.</h3><br />
+		<div class="left"><h3><b>1.</b>El Splitter envía un mensaje $eSP^r_{j,i}$.</h3><br />
 		<ul>
 		<li><h4>$eSP^r_{j,i}=\{eCH^r_{j,i},\ SH^{r+1}_i\}$</h4></li>
 		<ul>
@@ -562,14 +566,14 @@ color: #000;
 		<li><h4>$\{SH^{r+1}_i\}_q=\{P_i,P_q, r+1, A^{r+1}_{q,i},S_{pr}(H(P_i||P_q||r+1||A^{r+1}_{q,i}))\}$</h4></li>
 		</ul></ul></ul>
 		 </div>
-		<div><h3><b>2.</b>El peer reconstruye $K^r_i$, descifra el mensaje y valida la firma.</h3></div><br />
-		<div><h3><b>3.</b>El peer envía el mensaje descifrado.</h3><br />
+		<div class="left"><h3><b>2.</b>El peer reconstruye $K^r_i$, descifra el mensaje y valida la firma.</h3></div><br />
+		<div class="left"><h3><b>3.</b>El peer envía el mensaje descifrado.</h3><br />
 		<ul>
 		<li><h4>$PP^r_{i,q}=\left\{CH^r_{j,i},\ \{SH^{r+1}_i\}_q \right\}$</h4></li>
 		<ul><li><h4>$CH^r_{j,i} = \{C_j, j, P_i, r, S_{pr}(H(C_j||j||P_i||r))\}$</h4></li></ul>
 		</ul>
 		</div>
-		<div><h3><b>4.</b>El peer verifica el mensaje y almacena el share.</h3></div>
+		<div class="left"><h3><b>4.</b>El peer verifica el mensaje y almacena el share.</h3></div>
 
 	</section>
 	<!-- end of animation -->
