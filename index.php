@@ -55,7 +55,7 @@
    
   <?php
    foreach (scandir(".",1) as $dir) {
-        if ( substr($dir, 0,1) === "2") {
+        if (substr($dir, 0,1) === "2" and file_exists($dir.'/index.html')) {
   ?>
 		<a href="<?php echo $dir.'/index.html'; ?>">
 		<div class="slide">
