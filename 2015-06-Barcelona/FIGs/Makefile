@@ -1,4 +1,4 @@
-include ../../../Makefile-rules/Makefile
+include ../../Makefile-rules/Makefile
 
 #thanks.png:	$(P2PSP_DOCS)/thanks.png
 #		cp $(P2PSP_DOCS)/thanks.png .
