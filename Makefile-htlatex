@@ -4,7 +4,8 @@ publish:	snapshot.png
 
 index.html:     index.tex
 	make -C FIGs
-	htlatex index.tex "../slides.cfg, ../math.cfg, 2, charset=utf-8" " -cunihtf -utf8"
+	make -C FIGs
+	htlatex index.tex "../slides.cfg, ../math.cfg, 2, charset=utf-8" " -cunihtf
 
 snapshot.png:	index.html
 	phantomjs ../rasterize.js index.html snapshot.png 400px*300px
