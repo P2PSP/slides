@@ -1,0 +1,73 @@
+# Jornada-Contenidos-Digitales-UAL-2014 Makefile
+
+#include $(P2PSP_DOCS)/templates/Makefile
+
+default:	slides.html
+
+all:	slides.html slides-show.html
+
+IMGs	+= ../../resources/PNGs/thanks.png
+IMGs	+= ../../resources/SVGs/unicast.svg
+IMGs	+= ../../resources/SVGs/multicast.svg
+IMGs	+= ../../resources/SVGs/P2P_model.svg
+IMGs	+= ../../resources/SVGs/CS_model.svg
+IMGs	+= ../../resources/SVGs/CS-team.svg
+IMGs	+= ../../resources/SVGs/congestion_control.svg
+IMGs	+= ../../resources/SVGs/DVB.svg
+IMGs	+= ../../resources/SVGs/world-internet.svg
+IMGs	+= ../../resources/SVGs/spain-IPVoD.svg
+IMGs	+= ../../resources/SVGs/spain-IPTV-Hub.svg
+IMGs	+= ../../resources/SVGs/spain-IPTV-P2P.svg
+IMGs	+= ../../resources/SVGs/unicast-server.svg
+IMGs	+= ../../resources/SVGs/multicast-server.svg
+IMGs	+= ../../resources/SVGs/unicast-splitter.svg
+IMGs	+= ../../resources/SVGs/multicast-splitter.svg
+IMGs	+= ../../resources/SVGs/ACS.svg
+IMGs	+= ../../resources/SVGs/LRS.svg
+IMGs	+= ../../resources/SVGs/EMS.svg
+IMGs	+= ../../resources/SVGs/3d-example.svg
+
+#TEXINPUTS	= .:../../resources/PDFs:../../resources/PNGs:
+
+slides.pdf:	slides.tex #$(IMGs) $(TMPs)
+		pdflatex slides.tex
+		#(export TEXINPUTS=${TEXINPUTS}; pdflatex slides.tex)
+
+slides.html:	slides.pdf
+		make -C FIGs
+		#cp $(IMGs) .
+		#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex slides.tex "slides, mathplayer, info")
+		#(export TEX4HTINPUTS=${TEXINPUTS}; export TEXINPUTS=${TEXINPUTS}; htlatex slides.tex "slides.cfg, math.cfg, 3, charset=utf-8" " -cunihtf -utf8")
+		htlatex slides.tex "slides.cfg, math.cfg, 3, charset=utf-8" " -cunihtf -utf8"
+
+slides-show.html:	slides.pdf
+		pandoc --data-dir=../FIGs --default-image-extension=svg --self-contained --to=slidy slides.tex --output=slides-show.html
+
+#		pandoc --mathml --self-contained --to=slidy slides.tex --output=slides-show.html
+#		pandoc -t html5 --template=template-revealjs.html \
+			--standalone --section-divs \
+			--variable theme="beige" \
+			--variable transition="linear" \
+			slides.tex -o slides-show.html
+
+#		pandoc -t html5 -s --template template.revealjs -o slides.html slides-show.tex
+#		pandoc --section-divs -t html5 -s --template template.revealjs -o slides.html slides.tex
+#		pandoc --mathml --self-contained --to=slidy slides.tex --output=slides.html
+#		pandoc --mathml --self-contained --to=revealjs slides.tex --output=slides-show.html
+#		pandoc  --webtex --self-contained --to=slidy slides.tex --output=slides.html
+#		pandoc  --mathjax --self-contained --to=slidy slides.tex --output=slides.html
+#		pandoc  --latexmathml --self-contained --to=slidy slides.tex --output=slides.html
+#		pandoc  --webtex --to=slidy slides.tex --output=slides.html
+#		htlatex slides.tex "slides, 3, mathplayer"
+#		htlatex slides.tex "html, 3, mathplayer"
+#		htlatex slides.tex "xhtml, mathplayer"
+#		mk4ht htlatex slides.tex 'xhtml, 3, charset=utf-8' ' -cunihtf -utf8 -cvalidate'
+
+clean:
+	rm -f $(TMPs) *.png *.out *.lg *.log *.png *.toc *.dvi *.idv *.html *.tmp *.pdf *.4ct *.4tc *.aux *.xref *.css *.svg
+
+snapshot.png:		slides-show.html
+	phantomjs ../rasterize.js slides-show.html snapshot.png
+
+publish:	snapshot.png
+	rsync -avz *.html *.css FIGs/*.svg FIGs/*.jpg FIGs/*.png slides@5.196.10.234:2014-11-Jornada-Contenidos-Digitales-UAL-2014
