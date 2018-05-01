@@ -3,6 +3,7 @@ default:	index.html
 publish:	snapshot.png
 
 index.html:     index.tex
+	make -C FIGs
 	htlatex index.tex "../slides.cfg, ../math.cfg, 2, charset=utf-8" " -cunihtf -utf8"
 
 snapshot.png:	index.html
