@@ -1,1 +1,1 @@
-include ../Makefile-jupyter
+include ../Makefile-reveal

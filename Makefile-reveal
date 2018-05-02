@@ -1,0 +1,6 @@
+default:	publish
+
+publish:	snapshot.png
+
+snapshot.png:	index.html
+	phantomjs ../rasterize.js index.html snapshot.png 400px*300px
