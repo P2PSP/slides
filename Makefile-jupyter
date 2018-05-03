@@ -16,4 +16,4 @@ index.html:	slides.ipynb
 	mv slides.slides.html index.html
 
 snapshot.png:	index.html
-	phantomjs ../rasterize.js index.html snapshot.png 400px*300px
+	phantomjs ../rasterize.js http://localhost/$(notdir $(CURDIR))/index.html snapshot.png 400px*300px

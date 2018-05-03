@@ -2,13 +2,13 @@
  <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>P2PSP Slides</title>
-    <style>
+   <style>
       .header{
 	width: 75%;
-       }
+      }
       .header img{
 	float:left;
-	}
+      }
       h1{
 	color: #9E9E9E;
 	padding-top: 5px;
@@ -17,11 +17,18 @@
         margin: 0;
         padding: 0;
       }
+      h3{
+        font-size: x-large;
+        color: black;
+      }
       hr { 
 	height: 5px;
-        color: gray;
-	background-color: gray;
-      } 
+	background-color: black;
+      }
+      .content img{
+        border-radius: 10%;
+        border:5px solid gray;
+      }
       .title{
 	text-align: center;
       }
@@ -29,15 +36,30 @@
   	margin: auto;
       }
       .content{
-	width: 85%;
-	}
+        width: 90%;
+      }
       .slide{
-	width: 320px;
+	width: 33%;
 	text-align: center;
-	float: left;
+        float: left;
+        margin-bottom: 10px;
       }
       .date{
         color: gray;
+      }
+
+      @media only screen and (max-width:820px) {
+        /* For Tablets: */
+        .slide {
+          width:50%;
+        }
+      }
+
+      @media only screen and (max-width:620px) {
+        /* For mobile phones: */
+        .slide {
+          width:100%;
+        }
       }
    </style>
  </head>
@@ -59,9 +81,9 @@
   ?>
 		<a href="<?php echo $dir.'/index.html'; ?>">
 		<div class="slide">
-		<img width="300px" src="<?php echo $dir.'/snapshot.png'; ?>">
+		<img width="90%" src="<?php echo $dir.'/snapshot.png'; ?>">
 		<?php list($year, $month, $name) = explode("-", $dir); ?>
-		<h3><?php echo $name; ?></h3>
+		<h3><?php echo str_replace("_"," ",$name); ?></h3>
 		<span class="date"><?php echo $month."-".$year; ?></span>
 		</div>
 		</a>
