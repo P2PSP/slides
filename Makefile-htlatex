@@ -8,4 +8,4 @@ index.html:     index.tex
 	htlatex index.tex "../slides.cfg, ../math.cfg, 2, charset=utf-8" " -cunihtf"
 
 snapshot.png:	index.html
-	phantomjs ../rasterize.js index.html snapshot.png 400px*300px
+	phantomjs ../rasterize.js index.html snapshot.png 800px*600px
