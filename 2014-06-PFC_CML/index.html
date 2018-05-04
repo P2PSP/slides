@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+    <meta charset="utf-8">    
+    <title>Implementación del P2PSP usando WebRTC - PFC</title>    
+    <link rel="stylesheet" href="./reveal.min.css">
+    <style>
+
+.reveal .slide-number {
+  color: #000;
+  font-size: xx-large;
+}
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2); }
+
+.reveal .progress span {
+  background: #268bd2;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+h3{text-align: justify;}
+h1 {color: #380B61;}
+h2 {text-align: justify;}
+    </style>
+  </head>
+  
+  <body>
+    
+    <div class="reveal">      
+      <div class="slides">
+	  
+	<section>
+	<h1>Implementación del protocolo P2PSP usando WebRTC</h1> <br />
+	<h2><center>P2PTV directamente en el Navegador, sin plugins.</center></h2><br />
+	<img src="images/p2pspsf.png" alt="P2PSP protocol" height="300px" />
+	<h3 style="text-align:center;"><b>Alumno:</b> Cristóbal Medina López <br />
+      <b>Director:</b> Vicente González Ruiz</h3><br />
+	<h4>Universidad de Almería</h4>
+	</section>
+
+      <section>
+	<h1>Sigue la presentación desde tu equipo</h1><br />
+	<h2><center>URL para seguir las diapositivas:<br /><br />
+	<a style="color: red; text-align:center;" href="http://www.p2psp.org/slides/CMLPFC">http://www.p2psp.org/slides/CMLPFC</a></center></h2> <br /><br />
+        <img src="images/diapositivas.png" alt="Diapositivas" height="250px" />
+      </section>
+
+	<section>
+	<h1>Índice de contenidos</h1><br />
+	<ul>
+	<li><h2><a href="#/3">Introducción.</a></h2></li>
+	<li><h2><a href="#/4">Motivación.</a></h2></li>
+	<li><h2><a href="#/5">¿Qué es el streaming de contenido?</a></h2></li>
+	<li><h2><a href="#/6">P2PSP.</a></h2></li>
+	<li><h2><a href="#/7">WebRTC.</a></h2></li>
+	<li><h2><a href="#/8">Media Source Extensions.</a></h2></li>
+	<li><h2><a href="#/9">¿Por qué el navegador Web?</a></h2></li>
+	<li><h2><a href="#/10">Streaming Cliente-Servidor.</a></h2></li>
+	<li><h2><a href="#/11">Streaming P2PSP.</a></h2></li>
+	<li><h2><a href="#/16">Ventajas del P2PSP.</a></h2></li>
+	<li><h2><a href="#/18">Estado actual de la implementación.</a></h2></li>
+	<li><h2><a href="#/20">Necesidades de estandarización.</a></h2></li>
+	<li><h2><a href="#/21">Trabajo futuro.</a></h2></li>
+	<li><h2><a href="#/22">Conclusiones.</a></h2></li>
+	<li><h2><a href="#/23">Enlaces y Agradecimientos.</a></h2></li>
+	</ul>
+      </section>
+
+	<section>
+	<h1>P2PTV directamente en el navegador</h1><br />
+	<img src="images/p2pspwebrtc.png" alt="P2PSP en el navegador" width="100%" />	  
+	<br /><br />
+    	<h2>
+	Streaming de contenido multimedia mediante redes P2P directamente en el navegador Web del usuario. Accesible tan sólo con introducir una URL, sin necesidad de plugins u otro software adicional.
+	</section>
+
+	<section>
+	  <h1> Motivación</h1><br />
+	<ul>
+   <li><h2> Millones de personas consumen contenido multimedia diariamente.</h2></li><br />
+
+    <li><h2>Aumento de la velocidad de acceso a Internet con tarifas reducidas.</h2> </li><br />
+
+    <li><h2>Acceso al contenido desde múltiples plataformas.</h2></li> <br /></ul>
+ 
+    <img src="images/responsive.png" alt="Multiples plataformas" height="250px" />
+
+	
+	</section>
+
+	<section>
+	<h1>¿Qué es el streaming de contenido?</h1><br />
+	<img src="images/Chrome2Chrome.png" alt="Chrome 2 Chrome" height="130px" />	  
+	<br />
+    	<h2>
+	El streaming de vídeo sobre Internet, o IPTV, consiste en distribuir contenido
+	multimedia sin interrupciones a través de la red de manera que el usuario final
+	reproduce el contenido al mismo tiempo que lo está recibiendo. El streaming en
+	directo, además de lo anterior, permite transmitir eventos que están sucediendo
+	justo antes de la difusión.
+	<br /><br />
+	</h2>
+	<h3 class="fragment">
+        <b>Gracias a esta tecnología ya no es necesario descargar los
+	ficheros de vídeo completamente antes de ser reproducidos</b>.
+	</h3>
+	</section>
+
+	<section>
+	<img src="images/p2pspsf.png" alt="P2PSP protocol" height="130px" />	  
+	<br />
+    	 <h2>El P2PSP (Peer to Peer Straightforward Protocol) es un protocolo de comunicación de la capa de aplicación para el streaming de contenido multimedia sobre Internet. El protocolo ha sido diseñado con tres ideas básicas en mente: <br /><br />
+	</h2>
+	<h3 class="fragment">1. Ser tan simple como sea posible con el fin de proporcionar una implementación rápida.</h3><br />
+<h3 class="fragment">2. Ser independiente del formato del stream.</h3><br />
+<h3 class="fragment">3. Ser eficiente.</h3>
+	</section>
+
+<section>
+	<img src="images/webrtc.png" alt="WebRTC" height="130px" />	  
+	<br />
+    	 <h2><b>WebRTC</b> (Web Real-Time Communication) es un proyecto de software libre iniciado en 2011 y que permite a los navegadores mantener comunicaciones en tiempo real a través de una API Javascript sin necesidad de software adicional. Es un proyecto mantenido por Google, Mozilla y Opera que actualmente está en proceso de estandarización en el IETF y en el W3C.  <br /><br />
+	</h2>
+	<h3 class="fragment"><b>MediaStream o getUserMedia</b>: Permite al navegador acceder a la cámara y al micrófono.</h3><br />
+<h3 class="fragment"><b>RTCPeerConnection</b>: Permite establecer una conexión P2P con otros navegadores.</h3><br />
+<h3 class="fragment"><b>RTCDataChannel</b>: Permite al navegador una comunicación de datos bidireccional entre peers.</h3>
+	</section>
+
+<section>
+	<img src="images/mse.png" alt="MSE" height="130px" />	  
+	<br />
+    	 <h2><b>Media Source Extensions</b>, también conocido como MSE, es una especificación elaborada por el HTML Working Group del W3C con el objetivo de extender las funcionalidades del objeto HTMLMediaElement. Las MSE permiten a los desarrolladores construir media stream dinámicos en JavaScript para la etiqueta &lt;audio&gt; y &lt;video&gt;.<br /><br />
+	</h2>
+	<ul>
+	<li><h3 class="fragment">Permite construir streams multimedia mediante JavaScript independientemente de cómo el elemento multimedia sea incrustado.</h3></li><br />
+<li><h3 class="fragment">Define un modelo de buffering que facilita casos de uso como streaming adaptativo, inserción de publicidad, saltos de tiempo y edición de vídeo.</h3></li><br />
+<li><h3 class="fragment">Aprovecha la caché del navegador tanto como sea posible.</h3></li><br />
+	</ul>
+	</section>
+
+  <section>
+    <h1> ¿Por qué el navegador Web?</h1><br />
+     <div class="fragment">
+     <div style="float:left; margin-right:10px;"><img src="images/easy.png" alt="Fácil de usar" height="70px" /></div><h2><b>Fácil de usar:</b> para acceder a un recurso es suficiente con recordar el nombre de dominio donde se aloja o llegar hasta él mediante motores de búsqueda disponibles en la red.</h2>
+</div>
+<br /><br />
+<div class="fragment">
+<div style="float:left;"><img src="images/html5.png" alt="HTML5" height="80px" /></div><h2><b>Etiqueta &lt;video&gt;:</b> permite incrustar contenido multimedia directamente, sin necesidad de plugins.</h2>
+</div>
+<br /><br />
+<div class="fragment">
+<div style="float:left;"><img src="images/webrtc.png" alt="WebRTC" height="80px" /></div><h2><b>WebRTC:</b> define los recursos PeerConnection y DataChannel. Juntos, permiten establecer un canal de datos bidireccional entre los navegadores mediante socket sobre UDP.</h2>
+</div>
+  </section>
+	
+<section>
+    <h1> Streaming Cliente-Servidor en la Web</h1><br />
+    <img src="images/withoutp2psp.png" alt="streaming cliente servidor" height="500px" /><br /><br />
+    <h3>Un escenario típico de streaming en vivo usando el modelo cliente-servidor. La fuente de vídeo captura el vídeo y lo envía al servidor de streaming. Cada cliente recibe una copia del stream
+desde el servidor de streaming que envía el contenido tantas veces como clientes hay conectados.</h3>
+	
+  </section>
+
+<section>
+    <h1>Streaming P2PSP en la Web</h1><br />
+    <img src="images/withp2psp.png" alt="streaming p2psp" height="400px" /><br /><br />
+    <h3>Un escenario equivalente al anterior pero usando el P2PSP. Cabe destacar que en este caso el Streaming Server sólo envía una copia del stream. Al igual que éste, el Splitter sólo envía una copia del stream y los peer son los encargados de compartir el contenido entre ellos.</h3>
+	
+  </section>
+
+ <section>
+    <h1>P2PSP: Un escenario ideal</h1><br />
+    <img src="images/secuencia-p2psp.png" alt="secuencia de intercambio de mensajes p2psp"/>
+  </section>
+
+<section>
+   <h1>P2PSP: El mundo real</h1><br />
+   <div class="fragment">
+   <h2><center><b> Problemas </b></center></h2>
+    </div>
+   <div class="fragment">
+   <div style="float:left; margin-right:10px;"><img src="images/router.png" alt="router" height="80px" width="80px" /></div><h2><b>NAT</b>: mecanismo utilizado por routers IP para intercambiar paquetes entre dos redes que asignan mutuamente direcciones incompatibles.</h2><br />
+   <div class="fragment">
+   <div style="float:left; margin-right:10px;"><img src="images/firewall.png" alt="router" height="80px" width="80px" /></div><h2><b>NAT simétricos</b>: por cada solicitud desde una dirección interna a una dirección de destino se asigna una dirección externa única. Incluso para direcciones origen iguales.</h2>
+  </div>
+</div>
+<br /><br />
+<div class="fragment">
+   <h2><center><b> Soluciones</b></center></h2>
+</div>
+<div class="fragment">
+<div style="float:left; margin-right:10px;"><img src="images/servidor.png" alt="Servidor" height="100px" /></div><h2><b>STUN</b> es protocolo de red que permite a un host que está detrás de un NAT descubrir su dirección IP pública, el puerto y el tipo de NAT.</h2></div>
+<br /><br />
+<div class="fragment">
+<div style="float:left; margin-right:10px;"><img src="images/servidor.png" alt="Servidor" height="100px" /></div>
+<h2><b>TURN</b> es protocolo de red que permite a un host situado detrás de un NAT simétrico o un firewall enviar y recibir datos mediante TCP o UDP.</h2>
+</div>
+  </section>
+
+<section>
+     <h2><center>P2PSP: WebRTC y STUN</center></h2><br />
+    <img src="images/secuencia-p2psp-stun.png" alt="secuencia de intercambio de mensajes p2psp-webrtc-stun"/>
+  </section>
+
+<section>
+     <h2><center>P2PSP: WebRTC y TURN</center></h2><br />
+    <img src="images/secuencia-p2psp-webrtc.png" alt="secuencia de intercambio de mensajes"/>
+  </section>
+
+<section>
+    <h1> P2PSP y C-S no son incompatibles</h1><br />
+    <img src="images/p2psphybrid.png" alt="p2psp híbrido" height="400px" /><br /><br />
+    <h3>Por ejemplo, un usuario premium (que no estaría obligado a compartir ancho de banda con el clúster) podría recibir el stream directamente del Streaming Server usando el modelo Cliente-Servidor.</h3>
+	
+  </section>
+
+<section>
+    <h1> Otras ventajas del P2PSP en la Web</h1><br /><br />
+<div class="fragment">
+       <div style="float:left;"><img src="images/html.png" alt="Link html" height="100px"/></div><h2><b> Los usuarios sólo se descargan una página Web</b> para empezar a disfrutar del contenido. Sin plugins o software adicional.</h2>
+</div>
+<br /><br />
+<div class="fragment">
+<div style="float:left;  margin-right:10px;"><img src="images/scalability.png" alt="escalabilidad" height="70px" /></div><h2><b>Los clientes aportan su capacidad de subida</b> con el fin de hacer el sistema mucho más escalable.</h2>
+</div>
+	
+  </section>
+
+<section>
+    <h1> Estado actual de la implementación</h1><br />
+    <h2><center>Veámos una demostración</center></h2><br />
+    <img src="images/demo.png" alt="demo P2PSP con WebRTC" height="450px" /><br /><br />
+  </section>
+
+<section>
+    <h1> Estado actual de la implementación</h1><br />
+    <h2><center>Un diseño responsive</center></h2><br />
+    <iframe width="853" height="480" src="http://www.youtube.com/embed/R7035-XaZd4?t=1m3s" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <section>
+    <h1>Desafortunadamente, en este momento...</h1><br />
+<div class="fragment">
+   <div style="float:left; margin-right:10px;"><img src="images/video.png" alt="Formato de video" height="70px" width="80px" /></div><h2><b> No existe un formato de vídeo universal</b> aceptado por todos los navegadores Web.</h2>
+</div>
+<br /><br />
+<div class="fragment">
+<div style="float:left; margin-right:5px;"><img src="images/webrtcdraf.png" alt="API WebRTC incompleta" height="80px" /></div><h2><b>La API WebRTC es sólo un borrador</b> que algunos navegadores han empezado a implementar. Sólo disponible en Chrome y Firefox (usan prefijos distintos).</h2></div>
+<br /><br />
+<div class="fragment">
+<div style="float:left; margin-right:5px;"><img src="images/mse.png" alt="MSE" height="80px" /></div><h2><b>Media Source Extensions</b> no está soportada por todos los navegadores. Sin embargo, está más cerca de convertirse en estándar, es una <i>Candidate Recommendation</i> del W3C.</h2>
+</div>
+  </section>
+
+  <section>
+  <h1>Trabajo Futuro</h1><br />
+<div class="fragment">
+   <div style="float:left;"><img src="images/update.png" alt="Actualizada" height="70px" width="80px" /></div><h2><b> Mantener actualizada la implementación</b> para que sea compatible con los navegadores de acuerdo al proceso de integración de WebRTC en los mismos.</h2>
+</div>
+<br /><br />
+<div class="fragment">
+<div style="float:left;"><img src="images/js.png" alt="JavaScript" height="80px" /></div><h2><b>Convertir la implementación en una API</b> de modo que cualquier desarrollador pueda incrustar fácilmente y de forma transparente un reproductor P2PSP en sus aplicaciones.</h2>
+</div>
+<br /><br />
+<div class="fragment">
+<div style="float:left;"><img src="images/chromecast.png" alt="Google Chromecast" height="80px" /></div><h2><b>Portar el sistema a Google Chromecast</b> para conseguir ejecutar un peer directamente en el televisor.  
+</div>
+ </section>
+
+
+ <section>
+  <h1>Conclusiones</h1><br />
+   <div style="float:left; margin-right:5px;"><img src="images/p2p.png" alt="Redes P2P" height="90px"/></div><h2> Las redes P2P son una alternativa al tradicional cliente-servidor para el streaming de contenido en directo.</h2>
+<br /><br />
+<div style="float:left; margin-right:10px;"><img src="images/fix.png" alt="Ajustes" height="65px" /></div><h2>Aunque deben realizarse algunas mejoras, la Web ofrece (o lo hará en breve) la funcionalidad suficiente para desarrollar sistemas masivos de P2PTV.</h2>
+ </section>
+
+ <section data-background="images/http.png">
+  <h1>Enlaces de interés</h1><br />
+   <h2>> <a href="http://www.p2psp.org">Web oficial del protocolo P2PSP</a></h2>
+<h2>> <a href="http://launchpad.net/p2psp">P2PSP en Launchpad</a></h2>
+<h2>> <a href="http://iswebrtcreadyyet.com">Estado de WebRTC</a></h2>
+<h2>> <a href="http://www.p2psp.org/webrtc-streaming">Streaming entre navegadores</a></h2>
+<h2>> <a href="http://www.cristobalmedinalopez.es">Blog de Cristóbal Medina</a></h2>
+ </section>
+
+ <section>
+  <h1> Agradecimientos</h1><br /><br />
+   <div class="fragment"><img src="images/p2pspsf.png" alt="Concurso universitario de software libre" height="120px"/>
+   </div>
+<br /><br />
+<div class="fragment"><img src="images/sal.png" alt="Concurso universitario de software libre" height="90px"/></div>
+<br /><br />   
+   <div class="fragment"><img src="images/luxundasf.png" alt="Concurso universitario de software libre" height="90px"/></div>
+<br /><br />
+   <div class="fragment"><img src="images/cusl.png" alt="Concurso universitario de software libre" height="90px"/></div>
+<br /><br />
+ </section>
+
+<section data-background="images/preguntas.png">
+  <h1>Gracias!</h1><br />
+   
+ </section>
+     
+    </div>    
+    <script src="./reveal.min.js"></script>
+    
+    <script>
+      
+      Reveal.initialize({
+      slideNumber: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      });
+
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-42660390-1', 'p2psp.org');
+		ga('send', 'pageview');
+
+	</script>
+    
+  </body>
+</html>
