@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    
+    <title>IPTV using P2PSP and HTML5+WebRTC</title>
+    
+    <link rel="stylesheet" href="./reveal.min.css">
+    <!--<link rel="stylesheet" href="/home/vruiz/Descargas/reveal.js-2.6.1/css/theme/solarized.css" id="theme">-->
+
+    <style>
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2); }
+
+.reveal .progress span {
+  background: #268bd2;
+  -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
+
+
+      table.center {
+      margin-left: auto;
+      margin-right: auto;
+      }
+
+#td {height: 500px; width:500px;}
+#td {text-align:center; vertical-align:middle;}
+
+#cssTable td {text-align:center; vertical-align:middle;}
+
+    </style>
+  </head>
+  
+  <body>
+    
+    <div class="reveal">
+      
+      <div class="slides">
+	
+	<section>
+	  <h1>IPTV using P2PSP and HTML5+WebRTC</h1>
+	  <br />
+	  <HR width=100% align="left">
+	  <h2>
+	    Crist&oacute;bal Medina-L&oacute;pez, Juan Pablo Garc&iacute;a Ortiz and
+	  </h2>
+	  <h2>
+	    J. A. M. Naranjo
+	  </h2>	  <br />
+	  <img src="./logoluxundafondoblanco.png" alt="Meny" height="100">
+	  <HR width=100% align="left">
+	  <h2>
+	    L. G. Casado and Vicente Gonz&aacute;lez-Ruiz
+	  </h2>
+	  <br />
+	  <img src="./SAL-logo.png" alt="Meny" height="100">
+	  <h3>
+	    Department of Informatics, University of Almer&iacute;a, Spain
+	  </h3>
+	  <HR width=100% align="left">
+	  <img src="./feder.png" alt="Meny" height="50">
+	  <img src="./gobierno.jpg" alt="Meny" height="50">
+	  <img src="./junta.png" alt="Meny" height="50">
+	  <img src="./ceia3.jpg" alt="Meny" height="50">
+    <aside class="notes">
+        Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+    </aside>
+	</section>
+
+	<section>
+	  <h1>URL of these Slides</h1>
+	  <br>
+	  <br>
+	  <h2>
+	  <a href="http://www.p2psp.org/slides/Web-TV-Convergence-2014/">http://www.p2psp.org/slides/Web-TV-Convergence-2014</a>
+	  </h2>
+	</section>
+
+	<section>
+	  <h1>What is IPTV?</h1>
+	  <br>
+	  <HR width=100% align="left">
+	  <h2>
+	    <a href="http://www.itu.int/ITU-T/newslog/IPTV+Standardization+On+Track+Say+Industry+Experts.aspx">ITU-T's
+	      (adapted) definition</a>: <q> &ldquo;IPTV is defined as
+	      multimedia services (such as
+	      television/video/audio/text/graphics/data) delivered
+	      over IP based networks managed to provide the required
+	      level of <font color="red">quality of experience</font>
+	      (<font color="green">reliability</font>, <font color="green">delay</font>, <font color="green">interactivity</font>,
+	      etc.) and <font color="red">security</font>
+	      (<font color="green">integrity</font>, <font color="green">pay-per-view</font>,
+	      etc.).&rdquo;</q>
+	  </h2>
+	  <HR width=100% align="left">
+	</section>
+	
+	<section>
+	  <h1>Network models for IPTV</h1>
+	  <br>
+	  <table class="center">
+	    <tr>
+	      <td>
+		<img src="./multicast.svg" alt="Meny">
+	      </td>
+	      <td>
+		<img src="./unicast.svg" alt="Meny">
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h1>Service models for IPTV over Unicast</h1>
+	  <br>
+	  <img src="./CS_model.svg" alt="Meny">
+	  <br>
+	  <br>
+	  <img src="./P2P_model.svg" alt="Meny">
+	  <br>
+	  <br>
+	  <h3>Notice that, unlike the Client/Server Model, the P2P
+	  Model takes advantage of the Clients's (Peers) bandwidth!</h3>
+	</section>
+
+	<section>
+	  <img src="./logop2psp.png" alt="Meny" width="300">
+	  <br>
+	  <br>
+	  <h2>
+	    <ul>
+	      <li>
+		<a href="http://www.p2psp.org/en/">P2PSP (Peer to Peer
+		  "Straightforward" Protocol)</a> is an open
+		  (<a href="http://www.oxforddictionaries.com/definition/english/non-proprietary">non-propietary</a>)
+		  application-layer protocol for the real-time
+		  streaming of media content between networked
+		  entities (Peers).
+	      </li>
+	      <br>
+	      <li>
+		An open-source
+		  (<a href="https://www.gnu.org/copyleft/gpl.html">GNU
+		  GPL v3</a>) implementation is available
+		  at <a href="https://launchpad.net/p2psp">
+		  Lauchpad</a>.
+	      </li>
+	    </ul>
+	  </h2>
+	</section>
+
+	<section>
+	  <h1>P2PSP vs. Client/Server Architecture</h1>
+	  <br>
+	  <table class="center">
+	    <tr>
+	      <td>
+		<img src="./P2PSP-team.svg" alt="Meny">
+	      </td>
+	      <td>
+		<img src="./CS-team.svg" alt="Meny">
+	      </td>
+	    </tr>
+	  </table>
+	  <br>
+	  <ul>
+	    <h3>
+	      <li>
+		Notice that:
+		<ol>
+		  <br>		  
+		  <li>
+		    The P2PSP's Splitter node (S in red) only sends a
+		    copy of the stream regardless of the number of
+		    Peers (P). In a C/S system, the Server (S in
+		    green) sends as many copies as Clients (C).
+		  </li>
+		  <br>		  
+		  <li>
+		    If a link or a Peer fails in a P2PSP team, the lost
+		    chunks are dispersed in time. Therefore, signal
+		    interpolation could be efficiently used to hide to the
+		    users this lost of information.
+		  </li>
+		</ol>
+	    </h3>
+	  </ul>
+	</section>
+
+	<section>
+	  <h1>What is<img src="./HTML5 Logo.svg" alt="Meny" width="100">?</h1>
+	  <br>
+	  <HR width=100% align="left">
+	  <h2>
+	    <a href="http://www.w3.org/html/logo/">W3C's
+	      definition:</a><q>&ldquo;HTML5 is the cornerstone of the
+	      W3C's open Web platform; a framework designed to support
+	      innovation and foster the full potential the Web has to
+	      offer.&rdquo;</q>
+	  <HR width=100% align="left">
+	  One of the key advances is
+	  the <a href="http://www.w3schools.com/tags/tag_video.asp">
+	  HTML <FONT FACE="courier"> &lt;video&gt; </FONT> tag</a>, which
+	  provides the playback of a stream of a video without third
+	  party software.
+	  </h2>
+	</section>
+	
+	<section>
+	  <h1>What is <img src="./WebRTC.png" alt="Meny" width="250">?</h1>
+	  <br>
+	  <h2>
+	  <HR width=100% align="left">
+	    <a href="http://www.webrtc.org/">Googl'es
+	      definition: </a><q>&ldquo;WebRTC is a free, open project
+	      that enables Web browsers with Real-Time Communications
+	      (RTC) capabilities via simple JavaScript
+	      APIs.&rdquo;</q>
+	  </h2>
+	  <HR width=100% align="left">
+	  <br>
+	  <ol>
+	    <ul>
+	      <h2>
+		<li>
+		  Available for: <a href="http://chrome.google.com/">Chorme</a> (included Android),
+		  <a href="http://www.mozilla.org/en-US/firefox/">Firefox</a>
+		  and <a href="http://www.opera.com/">Opera</a> Web
+		  browsers.
+		</li>
+		<li>
+		  Parts:
+		  <ol>
+		    <li>
+		      <a href="http://www.webrtc.org/webrtc-native-code-package">WebRTC
+			Native Code Package</a>: for browser
+		      developers that want to integrate WebRTC.
+		    </li>
+		    <li><a href="http://dev.w3.org/2011/webrtc/editor/webrtc.html">WebRTC
+			API</a>:
+		      for Web application developers that want to use WebRTC.
+		    </li>
+		  </ol>
+	      </h2>
+	    </ul>
+	  </ol>
+	</section>
+
+	<section>
+	  <h1>(HTML5+WebRTC+P2PSP)-based Streaming</h1>
+	  <img src="./withp2psp.svg" alt="Meny"/>
+	</section>
+
+	<section>
+	  <h1>A Demo</h1>
+	  <br>
+	  <a href="http://localhost:8888/peer.html">
+	    <img src="./demo.svg" alt="Meny">
+	  </a>
+	</section>
+
+	<section>
+	  <h1>Unfortunately, at this momment ...</h1>
+	  <br>
+	  <br>
+	  <ol>
+	    <h2>
+	      <li>
+		<a href="http://www.w3.org/TR/media-source/">Media
+		  Source Extensions</a> (the W3C Candidate
+		  Recomendation which extends
+		the <a href="https://developer.mozilla.org/es/docs/Web/API/HTMLMediaElement">HTMLMediaElement
+		  interface</a> to allow JavaScript to generate media
+		streams for playback) are only implemented in Google
+		Chrome and only works with the <em>complete</em> WebM streams.
+	      </li>
+	      <br>
+	      <li>
+		<a href="http://www.w3.org/TR/webrtc/">WebRTC</a> is
+		not supported by all Web browsers.
+	      </li>
+	      <br>
+	      <li>
+		There is not a video format recognized by all Web
+		browsers (even Chrome, Firefox and Opera).
+	      </li>
+	    </h2>
+	  </ol>
+	</section>
+
+	<section>
+	  <h1>Summarizing</h1>
+	  <br>
+	  <br>
+	  <ol>
+	    <h2>
+	      <li>
+		Data replication required by IPTV can be achieved at
+		the application layer using P2P techniques.
+	      </li>
+	      <br>
+	      <li>
+		Although some improvements should be performed, the
+		Web provides (or is going to have) enough
+		functionality to develop massive (P2P-based) IPTV
+		systems.
+	      </li>
+	    </h2>
+	  </ol>
+	</section>
+
+	<section>
+	  <h1>Thanks!</h1>
+	</section>
+
+      </div>
+      
+    </div>
+    
+    <script src="./reveal.min.js"></script>
+    
+    <script>
+      
+      Reveal.initialize({
+      slideNumber: true,
+      controls: false,
+      progress: true,
+      history: true,
+      center: true,
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      });
+
+    </script>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-42660390-1', 'p2psp.org');
+		ga('send', 'pageview');
+
+	</script>
+    
+  </body>
+</html>

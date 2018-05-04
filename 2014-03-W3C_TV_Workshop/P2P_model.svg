@@ -1,0 +1,119 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5e -->
+<!-- CreationDate: Wed Mar 12 11:00:59 2014 -->
+<!-- Magnification: 1.050 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="5.4in" height="3.1in"
+	viewBox="318 2680 6450 3662">
+<g style="stroke-width:.025in; fill:none">
+<!-- Line: box -->
+<rect x="330" y="2692" width="6425" height="3637" rx="110" 
+style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#bfbfbf;
+"/>
+<!-- Line: box -->
+<rect x="3779" y="2834" width="2834" height="2834" rx="110" 
+style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#ffffff;
+"/>
+<!-- Line: box -->
+<rect x="472" y="2834" width="2834" height="2834" rx="110" 
+style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+fill:#ffffff;
+"/>
+<!-- Line -->
+<polyline points="1739,3441
+1154,4335
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 1739 3441 - 1077 4453-->
+<polygon points="1128 4316
+1086 4438
+1181 4350
+1128 4316
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="5196,3590
+5196,4834
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 5196 3590 - 5196 4976-->
+<polygon points="5165 4833
+5196 4959
+5228 4833
+5165 4833
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="4488,4724
+5732,4724
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 4488 4724 - 5874 4724-->
+<polygon points="5731 4755
+5857 4724
+5731 4692
+5731 4755
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Circle -->
+<circle cx="944" cy="4724" r="302"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="1889" cy="5244" r="302"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="2834" cy="4724" r="302"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="4251" cy="4724" r="302"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="5196" cy="5244" r="302"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="6141" cy="4724" r="302"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="1889" cy="3307" r="302"
+ style="fill:#00ff00;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="5196" cy="3307" r="302"
+ style="fill:#00ff00;stroke:#000000;stroke-width:8;"/>
+<!-- Text -->
+<text xml:space="preserve" x="992" y="3590" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="315" text-anchor="middle">t<tspan font-size="210" dy="36">1</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="4299" y="3590" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="315" text-anchor="middle">t<tspan font-size="210" dy="36">2</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="3543" y="6141" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">Peer-to-Peer Model</text>
+<!-- Text -->
+<text xml:space="preserve" x="944" y="4818" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">P<tspan font-size="168" dy="36">1</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="1889" y="5338" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">P<tspan font-size="168" dy="36">2</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="2834" y="4818" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">P<tspan font-size="168" dy="36">3</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="4251" y="4818" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">P<tspan font-size="168" dy="36">1</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="5196" y="5338" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">P<tspan font-size="168" dy="36">2</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="6141" y="4818" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">P<tspan font-size="168" dy="36">3</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="1889" y="3401" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">S</text>
+<!-- Text -->
+<text xml:space="preserve" x="5196" y="3401" fill="#000000"  font-family="Times" font-style="normal" font-weight="normal" font-size="252" text-anchor="middle">S</text>
+</g>
+</svg>

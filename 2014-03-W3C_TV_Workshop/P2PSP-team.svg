@@ -1,0 +1,368 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5e -->
+<!-- CreationDate: Wed Mar 12 11:00:59 2014 -->
+<!-- Magnification: 1.050 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="5.5in" height="4.1in"
+	viewBox="3303 1414 6620 4944">
+<g style="stroke-width:.025in; fill:none">
+<!-- Line -->
+<polyline points="6614,1889
+4198,4304
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 6614 1889 - 4098 4404-->
+<polygon points="4149 4263
+4104 4397
+4238 4352
+4149 4263
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="6614,1889
+6614,4125
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 6614 1889 - 6614 4267-->
+<polygon points="6551 4132
+6614 4258
+6677 4132
+6551 4132
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="4377,4582
+6141,4582
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 6141 4582 - 4236 4582-->
+<polygon points="4371 4519
+4245 4582
+4371 4645
+4371 4519
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="8976,4866
+7211,4866
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 8976 4866 - 7070 4866-->
+<polygon points="7206 4803
+7080 4866
+7206 4929
+7206 4803
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="8851,4582
+7086,4582
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 7086 4582 - 8992 4582-->
+<polygon points="8856 4645
+8982 4582
+8856 4519
+8856 4645
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="6614,1889
+9028,4304
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 6614 1889 - 9128 4404-->
+<polygon points="8987 4352
+9122 4397
+9077 4263
+8987 4352
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="4251,4866
+6015,4866
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 4251 4866 - 6157 4866-->
+<polygon points="6022 4929
+6148 4866
+6022 4803
+6022 4929
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="4323,5003
+4224,4967
+4239,4974
+4258,4980
+4282,4990
+4311,5001
+4346,5014
+4387,5029
+4433,5046
+4486,5066
+4541,5087
+4603,5109
+4667,5132
+4735,5158
+4807,5183
+4880,5209
+4954,5235
+5029,5261
+5105,5288
+5181,5313
+5255,5338
+5330,5362
+5402,5386
+5474,5409
+5543,5430
+5611,5451
+5677,5470
+5741,5489
+5803,5506
+5864,5523
+5922,5538
+5980,5551
+6034,5564
+6089,5575
+6141,5586
+6192,5595
+6242,5604
+6291,5611
+6340,5617
+6388,5623
+6435,5628
+6481,5631
+6529,5634
+6575,5636
+6622,5637
+6668,5638
+6714,5637
+6762,5636
+6809,5634
+6856,5632
+6903,5628
+6953,5624
+7002,5618
+7053,5612
+7104,5605
+7158,5596
+7212,5587
+7268,5576
+7325,5565
+7384,5552
+7445,5539
+7508,5524
+7573,5507
+7640,5490
+7709,5472
+7780,5454
+7853,5434
+7926,5413
+8001,5392
+8077,5370
+8154,5346
+8230,5323
+8307,5300
+8383,5277
+8457,5254
+8530,5231
+8599,5209
+8665,5188
+8727,5168
+8785,5149
+8837,5132
+8885,5117
+8925,5103
+8961,5091
+8992,5081
+9016,5072
+9036,5066
+9049,5062
+9060,5059
+9066,5057
+9069,5055
+9070,5055
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:bevel; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 4224 4967 - 4188 4954-->
+<polygon points="4337 4942
+4197 4957
+4291 5060
+4337 4942
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="4062,5102
+4064,5103
+4067,5105
+4072,5108
+4079,5113
+4092,5122
+4108,5132
+4128,5146
+4153,5163
+4183,5183
+4219,5206
+4260,5232
+4305,5262
+4355,5295
+4411,5330
+4470,5367
+4532,5407
+4598,5449
+4666,5492
+4737,5537
+4809,5581
+4882,5626
+4956,5671
+5029,5715
+5104,5759
+5177,5802
+5250,5843
+5321,5884
+5391,5923
+5460,5961
+5527,5995
+5592,6030
+5656,6061
+5718,6092
+5778,6120
+5837,6148
+5895,6172
+5950,6195
+6004,6217
+6057,6236
+6109,6254
+6159,6269
+6208,6284
+6258,6297
+6305,6308
+6352,6318
+6400,6326
+6446,6332
+6492,6338
+6538,6342
+6583,6345
+6629,6346
+6676,6346
+6721,6345
+6767,6343
+6813,6340
+6860,6334
+6908,6328
+6955,6320
+7004,6310
+7054,6300
+7103,6287
+7154,6272
+7207,6257
+7261,6239
+7316,6220
+7373,6199
+7432,6176
+7491,6152
+7553,6125
+7617,6097
+7682,6068
+7750,6036
+7819,6003
+7889,5968
+7961,5932
+8034,5895
+8109,5855
+8184,5815
+8261,5774
+8337,5732
+8413,5690
+8489,5648
+8563,5606
+8636,5565
+8706,5524
+8774,5485
+8838,5447
+8899,5412
+8956,5378
+9008,5348
+9056,5319
+9098,5295
+9134,5273
+9166,5254
+9192,5237
+9213,5225
+9229,5215
+9241,5207
+9151,5259
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:bevel; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 9241 5207 - 9272 5188-->
+<polygon points="9190 5313
+9265 5193
+9124 5206
+9190 5313
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Text -->
+<text xml:space="preserve" x="5244" y="4488" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">2,5,...</text>
+<!-- Text -->
+<text xml:space="preserve" x="8031" y="4488" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">2,5,...</text>
+<!-- Text -->
+<g transform="translate(6708,3307) rotate(-270.00063138)" >
+<text xml:space="preserve" x="0" y="0" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">2,5,...</text>
+</g><!-- Text -->
+<g transform="translate(8173,3307) rotate(-315.00073661)" >
+<text xml:space="preserve" x="0" y="0" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">3,6,...</text>
+</g><!-- Text -->
+<g transform="translate(5102,3212) rotate(-45.00010523)" >
+<text xml:space="preserve" x="0" y="0" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">1,4,...</text>
+</g><!-- Text -->
+<text xml:space="preserve" x="6614" y="5527" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">3,6,...</text>
+<!-- Text -->
+<text xml:space="preserve" x="6614" y="6236" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">1,4,...</text>
+<!-- Text -->
+<text xml:space="preserve" x="5527" y="5149" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">1,4,...</text>
+<!-- Text -->
+<text xml:space="preserve" x="7700" y="5196" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">3,6,...</text>
+<!-- Circle -->
+<circle cx="3779" cy="4724" r="467"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="9448" cy="4724" r="467"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="6614" cy="1889" r="467"
+ style="fill:#ff0000;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="6614" cy="4724" r="467"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Text -->
+<text xml:space="preserve" x="3779" y="4866" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="378" text-anchor="middle">P<tspan font-size="252" dy="36">1</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="9448" y="4866" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="378" text-anchor="middle">P<tspan font-size="252" dy="36">3</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="6614" y="4866" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="378" text-anchor="middle">P<tspan font-size="252" dy="36">2</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="6614" y="2031" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="378" text-anchor="middle">S</text>
+</g>
+</svg>

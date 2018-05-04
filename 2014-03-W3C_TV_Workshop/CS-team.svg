@@ -1,0 +1,84 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5e -->
+<!-- CreationDate: Wed Mar 12 11:00:59 2014 -->
+<!-- Magnification: 1.050 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="5.5in" height="3.2in"
+	viewBox="3303 1414 6620 3785">
+<g style="stroke-width:.025in; fill:none">
+<!-- Line -->
+<polyline points="6614,1889
+4198,4304
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 6614 1889 - 4098 4404-->
+<polygon points="4149 4263
+4104 4397
+4238 4352
+4149 4263
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="6614,1889
+6614,4125
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 6614 1889 - 6614 4267-->
+<polygon points="6551 4132
+6614 4258
+6677 4132
+6551 4132
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Line -->
+<polyline points="6614,1889
+9028,4304
+" style="stroke:#000000;stroke-width:8;
+stroke-linejoin:miter; stroke-linecap:butt;
+"/>
+<!-- Arrowhead on XXXpoint 6614 1889 - 9128 4404-->
+<polygon points="8987 4352
+9122 4397
+9077 4263
+8987 4352
+
+" style="stroke:#000000;stroke-width:8;stroke-miterlimit:8;
+fill:#000000;"/>
+<!-- Text -->
+<g transform="translate(6708,3307) rotate(-270.00063138)" >
+<text xml:space="preserve" x="0" y="0" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">1,2,3,4,...</text>
+</g><!-- Text -->
+<g transform="translate(8173,3307) rotate(-315.00073661)" >
+<text xml:space="preserve" x="0" y="0" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">1,2,3,4,...</text>
+</g><!-- Text -->
+<g transform="translate(5102,3212) rotate(-45.00010523)" >
+<text xml:space="preserve" x="0" y="0" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="303" text-anchor="middle">1,2,3,4,...</text>
+</g><!-- Circle -->
+<circle cx="3779" cy="4724" r="467"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="9448" cy="4724" r="467"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="6614" cy="1889" r="467"
+ style="fill:#00b000;stroke:#000000;stroke-width:8;"/>
+<!-- Circle -->
+<circle cx="6614" cy="4724" r="467"
+ style="fill:#00ffff;stroke:#000000;stroke-width:8;"/>
+<!-- Text -->
+<text xml:space="preserve" x="3779" y="4866" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="378" text-anchor="middle">C<tspan font-size="252" dy="36">1</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="9448" y="4866" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="378" text-anchor="middle">C<tspan font-size="252" dy="36">3</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="6614" y="4866" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="378" text-anchor="middle">C<tspan font-size="252" dy="36">2</tspan><tspan dy="-36"></tspan></text>
+<!-- Text -->
+<text xml:space="preserve" x="6614" y="2031" fill="#000000"  font-family="Times" font-style="italic" font-weight="normal" font-size="378" text-anchor="middle">S</text>
+</g>
+</svg>
