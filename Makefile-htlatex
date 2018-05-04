@@ -1,6 +1,6 @@
 default:	index.html
 
-publish:	snapshot.png
+publish:	index.html snapshot.png
 
 index.html:     index.tex
 	make -C FIGs
