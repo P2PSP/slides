@@ -1,3 +1,5 @@
+# Lab 3: using relaying servers
+
 set -x
 
 echo "Killing all VLC instances"
@@ -13,13 +15,13 @@ sleep 1
 sleep 5
 
 echo "Feed the fist (8000) icecast server"
-cvlc ~/Videos/LBig_Buck_Bunny_small.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/BBB.ogv}" --loop &
+cvlc ~/Videos/LBBB.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/LBBB.ogv}" --loop &
 sleep 1
-cvlc ~/Videos/Lchi84_14_m4.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/chi.ogv}" --loop &
+cvlc ~/Videos/Lchi84_14_m4.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/Lchi.ogv}" --loop &
 sleep 1
 
 echo "Feed the second (9000) icecast server"
-cvlc ~/Videos/Lhcil2003_01.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:9000/hcil.ogv}" --loop &
+cvlc ~/Videos/Lhcil2003_01.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:9000/Lhcil.ogv}" --loop &
 sleep 1
 
 echo "Check the infrastructure"
@@ -31,10 +33,10 @@ echo "Plase, push <enter> to continue"
 read
 
 echo "Run the listeners, one for the 8000 and two for the 9000"
-cvlc http://localhost:8000/BBB.ogv 2> /dev/null &
+cvlc http://localhost:8000/LBBB.ogv 2> /dev/null &
 sleep 1
-cvlc http://localhost:9000/chi.ogv 2> /dev/null &
+cvlc http://localhost:9000/Lchi.ogv 2> /dev/null &
 sleep 1
-cvlc http://localhost:9000/hcil.ogv 2> /dev/null &
+cvlc http://localhost:9000/Lhcil.ogv 2> /dev/null &
 
 set +x
