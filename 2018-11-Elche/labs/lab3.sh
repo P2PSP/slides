@@ -1,5 +1,7 @@
 # Lab 3: using relaying servers
 
+# Note: the second instance of Icecast must be called from the home directory!
+
 set -x
 
 echo "Killing all VLC instances"
@@ -9,6 +11,9 @@ sleep 1
 echo "Run a second Icecast2 server listening at port 9000"
 killall icecast2
 sleep 1
+
+# Note: Remember: run me in your home!
+
 # The file ~/icecast/icecast.xml must be configured to listen at port
 # 9000 and to relay all the master's channels
 /usr/bin/icecast2 -b -c ~/icecast/icecast.xml
@@ -27,7 +32,7 @@ sleep 1
 echo "Check the infrastructure"
 firefox http://localhost:8000 2> /dev/null &
 sleep 10
-firefox http://localhost:9000  2> /dev/null
+firefox http://localhost:9000 2> /dev/null
 sleep 2
 echo "Plase, push <enter> to continue"
 read
