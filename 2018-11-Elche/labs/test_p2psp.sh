@@ -4,8 +4,8 @@ echo "Killing all VLC instances (sources and listeners)"
 killall vlc
 sleep 1
 
-echo "Creating the source"
-cvlc ~/Videos/LBBB.ogv --sout "#duplicate{dst=http{dst=:8000/LBBB.ogv},dst=display}" --loop &
+echo "Creating a source (note, Icecast must be running)"
+cvlc ~/Videos/LBBB.ogv --sout "#std{access=shout,mux=ogg,dst=source:hackme@localhost:8000/LBBB.ogv}" --loop &
 sleep 5
 
 export adapter_IP_addr=`ip route get 8.8.8.8 | head -1 | cut -d ' ' -f 7`
