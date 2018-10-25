@@ -15,9 +15,9 @@ xterm -e "python3 ~/P2PSP/simulator/src/splitter_video.py --source_address $adap
 sleep 1
 xterm -e "python3 ~/P2PSP/simulator/src/monitor_video.py --splitter_address $adapter_IP_addr  --splitter_port 8001" &
 sleep 1
-cvlc http://localhost:9999 & # Monitor's player
+ffplay http://localhost:9999 & # Monitor's player
 sleep 1
 xterm -e "python3 ~/P2PSP/simulator/src/peer_video.py --splitter_address $adapter_IP_addr --splitter_port 8001 --player_port 10000" &
 sleep 1
-cvlc http://localhost:10000 & # The first peer
+ffplay http://localhost:10000 & # The first peer
 
