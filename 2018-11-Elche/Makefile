@@ -1,3 +1,7 @@
+default:	publish
+
+publish:	index.html snapshot.png
+
 include $(HOME)/LaTeX_templates/Makefile
 
 index.html:	$(HOME)/LaTeX_templates $(HOME)/bibs *.tex graphics/*.fig graphics/*.png
@@ -7,3 +11,6 @@ index.html:	$(HOME)/LaTeX_templates $(HOME)/bibs *.tex graphics/*.fig graphics/*
 
 $(HOME)/bibs:
 	git clone git@gitlab.hpca.ual.es:vruiz/bibs.git $(HOME)/bibs
+
+snapshot.png:	index.html
+	phantomjs ../rasterize.js index.html snapshot.png 800px*600px
