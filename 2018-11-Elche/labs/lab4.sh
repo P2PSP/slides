@@ -26,11 +26,11 @@ sleep 1
 #sleep 5
 
 echo "Run a listener connected to the master Icecast server"
-cvlc http://localhost:8000/LBBB.ogv 2> /dev/null &
+ffplay http://localhost:8000/LBBB.ogv 2> /dev/null &
 sleep 1
 
 echo "Run a listener connected to the relay Icecast server"
-cvlc http://localhost:9000/Lhcil.ogv 2> /dev/null &
+ffplay http://localhost:9000/Lhcil.ogv 2> /dev/null &
 sleep 1
 
 echo "Create a P2PSP team"
@@ -42,9 +42,9 @@ sleep 1
 
 xterm -e "python3 ~/P2PSP/simulator/src/monitor_video.py --splitter_address $adapter_IP_addr --splitter_port 8001" &
 sleep 1
-cvlc http://localhost:9999 & # Monitor's player
+ffplay http://localhost:9999 2> /dev/null & # Monitor's player
 sleep 1
 xterm -e "python3 ~/P2PSP/simulator/src/peer_video.py --splitter_address $adapter_IP_addr  --splitter_port 8001 --player_port 10000" &
 sleep 1
-cvlc http://localhost:10000 & # The first peer
+ffplay http://localhost:10000 2> /dev/null & # The first peer
 
