@@ -35,6 +35,7 @@ sleep 1
 
 echo "Create a P2PSP team"
 
+# Be careful with the ` symbols in case you copy them using the clipboard!
 export adapter_IP_addr=`ip route get 8.8.8.8 | head -1 | cut -d " " -f 7`
 
 xterm -e "python3 ~/P2PSP/simulator/src/splitter_video.py --source_address $adapter_IP_addr --source_port 8000 --splitter_port 8001 --channel LBBB.ogv --header_chunks 30" &
