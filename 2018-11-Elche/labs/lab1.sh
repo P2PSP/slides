@@ -1,4 +1,4 @@
-# Lab 1: using vlc as a source an as a listener
+# Lab 1: using vlc as a source and as a listener
 
 echo "Killing all VLC instances (sources and listeners)"
 killall vlc

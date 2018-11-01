@@ -44,8 +44,8 @@
   \hline
   \href{https://en.wikipedia.org/wiki/Unicast}{Unicast} & \vbox{\fig{200}{2cm}{200px-Unicast}} & Whole network & \href{https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol}{HTTP} (\href{https://en.wikipedia.org/wiki/Transmission_Control_Protocol}{TCP}) & \href{https://www.reddit.com/r/networking/comments/2cp356/how_do_streaming_services_like_netflix_and/}{YouTube/Netflix} \\
   \href{https://en.wikipedia.org/wiki/Broadcasting_%28networking%29}{Broadcast} & \vbox{\fig{200}{2cm}{250px-Broadcast}} & Subnet (LAN) & \href{https://en.wikipedia.org/wiki/Address_Resolution_Protocol}{ARP} & - \\
-    \href{https://en.wikipedia.org/wiki/Multicast}{Multicast} & \vbox{\fig{200}{2cm}{250px-Multicast}} & Defined horizon alg. (routers/TTL) & \href{https://en.wikipedia.org/wiki/Service_Location_Protocol}{SLP]} (\href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}, \href{https://en.wikipedia.org/wiki/Session_Description_Protocol}{SDP} \href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP} & \href{http://www.movistar.es/}{Movistar+}, \href{https://www.ono.es/television/}{Ono TV} \\
-  \href{https://en.wikipedia.org/wiki/Anycast}{Anycast} & \vbox{\fig{200}{2cm}{250px-Anycast}} & Internet & \href{https://en.wikipedia.org/wiki/Domain_Name_System)}{DNS protocol} (\href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP} & \href{https://www.maxcdn.com/blog/anycast-ip-routing-used-maxcdn/}{CDNs} \href{https://en.wikipedia.org/wiki/Domain_Name_System}{DNS}
+    \href{https://en.wikipedia.org/wiki/Multicast}{Multicast} & \vbox{\fig{200}{2cm}{250px-Multicast}} & Defined horizon alg. (routers/TTL) & \href{https://en.wikipedia.org/wiki/Service_Location_Protocol}{SLP} (\href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}, \href{https://en.wikipedia.org/wiki/Session_Description_Protocol}{SDP}, \href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}) & \href{http://www.movistar.es/}{Movistar+}, \href{https://www.ono.es/television/}{Ono TV} \\
+  \href{https://en.wikipedia.org/wiki/Anycast}{Anycast} & \vbox{\fig{200}{2cm}{250px-Anycast}} & Internet & \href{https://en.wikipedia.org/wiki/Domain_Name_System)}{DNS protocol} (\href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}) & \href{https://www.maxcdn.com/blog/anycast-ip-routing-used-maxcdn/}{CDNs}, \href{https://en.wikipedia.org/wiki/Domain_Name_System}{DNS}
   \end{tabular}
 
 \section{Streaming models}
@@ -91,16 +91,16 @@ IP Multicast & IP Unicast and Client/Server Model & IP Unicast and P2P Model \\
   \end{tabular}
 \end{center}
 
-\section{Push-based versus Pull-based}
+\section{Push-based versus pull-based}
 \begin{center}
-  \begin{tabular}{rl}
+  \begin{tabular}{cc}
     \vbox{\fig{200}{2cm}{push-based}} & \vbox{\fig{200}{2cm}{pull-based}} \\
     Push-based Protocol               & Pull-based Protocol
   \end{tabular}
 \end{center}
 
 \section{P2PSP}
-An \href{https://en.wikipedia.org/wiki/Multicast}{Application-layer Multicast} protocol which uses a push-based \href{https://en.wikipedia.org/wiki/Network_topology}{fully-connected mesh} (when possible) \href{https://en.wikipedia.org/wiki/Overlay_network}{overlay} for real-time \href{(https://en.wikipedia.org/wiki/Streaming_media}{streaming of media content} between networked \href{https://en.wikipedia.org/wiki/Process_%28computing%29}{entities}.
+An \href{https://en.wikipedia.org/wiki/Multicast}{Application-layer Multicast} protocol which uses a push-based \href{https://en.wikipedia.org/wiki/Network_topology}{fully connected mesh} (when possible) \href{https://en.wikipedia.org/wiki/Overlay_network}{overlay} for real-time \href{(https://en.wikipedia.org/wiki/Streaming_media}{streaming of media content} between networked \href{https://en.wikipedia.org/wiki/Process_%28computing%29}{entities}. Example:
 
 \begin{center}
   \fig{400}{4cm}{full-mesh}
@@ -151,7 +151,7 @@ unicast environments~\cite{comer2003computer}.
       arrives to $M_0$ from $S$, an entry $P_1:2$ is created in
       $P\{\}$ for that chunk, and this entry is deleted when the chunk
       2 is sent to $P_1$. Notice that $P_1$ does not receive chunks 0
-      and 1 because these chunks belong to a old (already played)
+      and 1 because these chunks belong to an old (already played)
       section of the stream.\label{fig:team_1}}
   \end{figure}
 
