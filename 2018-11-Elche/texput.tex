@@ -10,7 +10,7 @@
     Vicente González Ruiz & \texttt{vruiz@ual.es} \\
     ~ & ~ \\
     \multicolumn{2}{c}{\href{http://www.hpca.ual.es/}{SAL, UAL}}\\
-    \multicolumn{2}{c}{\vbox{\fig{600}{6cm}{thanks}}}
+    \multicolumn{2}{c}{\vbox{\imgw{800}{graphics/thanks.png}}}
 \end{tabular}}
 %\author{\begin{tabular}{rl}
 %    Cristóbal Medina López & \texttt{cristobalmedinalopez@gmail.com} \\
@@ -43,34 +43,34 @@
 \begin{tabular}{ccccc}
   MODE & TOPOLOGY & SCOPE & PROTOCOLS & APPLICATIONS/SYSTEMS \\
   \hline
-  \href{https://en.wikipedia.org/wiki/Unicast}{Unicast} & \vbox{\fig{200}{2cm}{200px-Unicast}} & Whole network & \href{https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol}{HTTP} (\href{https://en.wikipedia.org/wiki/Transmission_Control_Protocol}{TCP}) & \href{https://www.reddit.com/r/networking/comments/2cp356/how_do_streaming_services_like_netflix_and/}{YouTube/Netflix} \\
-  \href{https://en.wikipedia.org/wiki/Broadcasting_%28networking%29}{Broadcast} & \vbox{\fig{200}{2cm}{250px-Broadcast}} & Subnet (LAN) & \href{https://en.wikipedia.org/wiki/Address_Resolution_Protocol}{ARP} & - \\
-    \href{https://en.wikipedia.org/wiki/Multicast}{Multicast} & \vbox{\fig{200}{2cm}{250px-Multicast}} & Defined horizon alg. (routers/TTL) & \href{https://en.wikipedia.org/wiki/Service_Location_Protocol}{SLP} (\href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}, \href{https://en.wikipedia.org/wiki/Session_Description_Protocol}{SDP}, \href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}) & \href{http://www.movistar.es/}{Movistar+}, \href{https://www.ono.es/television/}{Ono TV} \\
-  \href{https://en.wikipedia.org/wiki/Anycast}{Anycast} & \vbox{\fig{200}{2cm}{250px-Anycast}} & Internet & \href{https://en.wikipedia.org/wiki/Domain_Name_System)}{DNS protocol} (\href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}) & \href{https://www.maxcdn.com/blog/anycast-ip-routing-used-maxcdn/}{CDNs}, \href{https://en.wikipedia.org/wiki/Domain_Name_System}{DNS}
+  \href{https://en.wikipedia.org/wiki/Unicast}{Unicast} & \vbox{\imgw{200}{graphics/Unicast.svg}} & Whole network & \href{https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol}{HTTP} (\href{https://en.wikipedia.org/wiki/Transmission_Control_Protocol}{TCP}) & \href{https://www.reddit.com/r/networking/comments/2cp356/how_do_streaming_services_like_netflix_and/}{YouTube/Netflix} \\
+  \href{https://en.wikipedia.org/wiki/Broadcasting_%28networking%29}{Broadcast} & \vbox{\imgw{200}{graphics/Broadcast.svg}} & Subnet (LAN) & \href{https://en.wikipedia.org/wiki/Address_Resolution_Protocol}{ARP} & - \\
+    \href{https://en.wikipedia.org/wiki/Multicast}{Multicast} & \vbox{\imgw{200}{graphics/Multicast.svg}} & Defined horizon alg. (routers/TTL) & \href{https://en.wikipedia.org/wiki/Service_Location_Protocol}{SLP} (\href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}, \href{https://en.wikipedia.org/wiki/Session_Description_Protocol}{SDP}, \href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}) & \href{http://www.movistar.es/}{Movistar+}, \href{https://www.ono.es/television/}{Ono TV} \\
+  \href{https://en.wikipedia.org/wiki/Anycast}{Anycast} & \vbox{\imgw{200}{graphics/Anycast.svg}} & Internet & \href{https://en.wikipedia.org/wiki/Domain_Name_System)}{DNS protocol} (\href{https://en.wikipedia.org/wiki/User_Datagram_Protocol}{UDP}) & \href{https://www.maxcdn.com/blog/anycast-ip-routing-used-maxcdn/}{CDNs}, \href{https://en.wikipedia.org/wiki/Domain_Name_System}{DNS}
   \end{tabular}
 
 \section{Streaming models}
 \begin{tabular}{ccc}
 IP Multicast & IP Unicast and Client/Server Model & IP Unicast and P2P Model \\
 \hline
-\vbox{\fig{300}{3cm}{multicast-server}} & \vbox{\fig{300}{3cm}{unicast-server}} & \vbox{\fig{300}{3cm}{unicast-splitter}}
+\vbox{\imgw{300}{graphics/multicast-server.svg}} & \vbox{\imgw{300}{graphics/unicast-server.svg}} & \vbox{\imgw{300}{graphics/unicast-splitter.svg}}
 \end{tabular}
 
 \section*{Lab 1: Streaming with VLC}
 \begin{center}
-  \fig{200}{2cm}{VLC}
+  \imgw{200}{graphics/VLC.svg}
 \end{center}
 \lstinputlisting{labs/lab1.sh}
 
 \section*{Lab 2: Streaming with VLC and Icecast}
 \begin{center}
-  \fig{300}{3cm}{icecast-1}
+  \imgw{300}{graphics/icecast-1.svg}
 \end{center}
 \lstinputlisting{labs/lab2.sh}
 
 \section*{Lab 3: Relaying}
 \begin{center}
-  \fig{500}{5cm}{icecast-2}
+  \imgw{500}{graphics/icecast-2.svg}
 \end{center}
 \begin{itemize}
   \item Icecast servers can be connected following a tree structure to
@@ -87,16 +87,16 @@ IP Multicast & IP Unicast and Client/Server Model & IP Unicast and P2P Model \\
 \section{ALM (Application-Layer Multicast) versus NLM (Network-Layer Multicast)}
 \begin{center}
   \begin{tabular}{ccc}
-  \vbox{\fig{200}{2cm}{NLM}} & \vbox{\fig{200}{2cm}{CS-ALM}}       & \vbox{\fig{200}{2cm}{P2P-ALM}} \\
-  Network Layer Multicast    & Client/Server Application Multicast & Peer-to-Peer Application Multicast
+  \vbox{\imgw{200}{graphics/NLM.svg}} & \vbox{\imgw{200}{graphics/CS-ALM.svg}} & \vbox{\imgw{200}{graphics/P2P-ALM.svg}} \\
+  Network Layer Multicast             & Client/Server Application Multicast    & Peer-to-Peer Application Multicast
   \end{tabular}
 \end{center}
 
 \section{Push-based versus pull-based}
 \begin{center}
   \begin{tabular}{cc}
-    \vbox{\fig{200}{2cm}{push-based}} & \vbox{\fig{200}{2cm}{pull-based}} \\
-    Push-based Protocol               & Pull-based Protocol
+    \vbox{\imgw{200}{graphics/push-based.svg}} & \vbox{\imgw{200}{graphics/pull-based.svg}} \\
+    Push-based Protocol                        & Pull-based Protocol
   \end{tabular}
 \end{center}
 
@@ -104,7 +104,7 @@ IP Multicast & IP Unicast and Client/Server Model & IP Unicast and P2P Model \\
 An \href{https://en.wikipedia.org/wiki/Multicast}{Application-layer Multicast} protocol which uses a push-based \href{https://en.wikipedia.org/wiki/Network_topology}{fully connected mesh} (when possible) \href{https://en.wikipedia.org/wiki/Overlay_network}{overlay} for real-time \href{(https://en.wikipedia.org/wiki/Streaming_media}{streaming of media content} between networked \href{https://en.wikipedia.org/wiki/Process_%28computing%29}{entities}. Example:
 
 \begin{center}
-  \fig{400}{4cm}{full-mesh}
+  \imgw{400}{graphics/full-mesh.svg}
 \end{center}
 
 \subsection{DBS (Data Broadcasting Set of rules)}
@@ -132,8 +132,8 @@ unicast environments~\cite{comer2003computer}.
 
 \begin{center}
   \begin{figure}
-    \fig{250}{2.5cm}{team_0} \caption{A team has been created with a
-      single monitor $M_0$ ($[\mathtt{hello}]$ messages are not
+    \imgw{250}{graphics/team_0.svg} \caption{A team has been created
+      with a single monitor $M_0$ ($[\mathtt{hello}]$ messages are not
       shown). Chunks with numbers 0 and 1 (the time $t$ is measured in
       chunks-time) have been transmitted from the splitter $S$ to
       $M_0$. $F$ and $P$ represents the $\text{forward}[]$ and the
@@ -142,76 +142,77 @@ unicast environments~\cite{comer2003computer}.
   \end{figure}
 
   \begin{figure}
-    \fig{250}{2.5cm}{team_1} \caption{Peer $P_1$ joins the team (the
-      $[\mathtt{hello}]$'s are not shown). In $M_0$, $F=\{M_0:[P_1]\}$
-      because when $M_0$ receives the $[\mathtt{hello}]$ from $P_1$,
-      $M_0$ is the origin peer for all chunks received from $S$ and
-      $P_1$ is its neighbor. $P_1$ includes an entry $P_1:[M_0]$ in
-      its forwarding table because $M_0$ is in the list of peers
-      received from the splitter. After that, when the chunk number 2
-      arrives to $M_0$ from $S$, an entry $P_1:2$ is created in
-      $P\{\}$ for that chunk, and this entry is deleted when the chunk
-      2 is sent to $P_1$. Notice that $P_1$ does not receive chunks 0
-      and 1 because these chunks belong to an old (already played)
-      section of the stream.\label{fig:team_1}}
+    \imgw{250}{graphics/team_1.svg} \caption{Peer $P_1$ joins the team
+      (the $[\mathtt{hello}]$'s are not shown). In $M_0$,
+      $F=\{M_0:[P_1]\}$ because when $M_0$ receives the
+      $[\mathtt{hello}]$ from $P_1$, $M_0$ is the origin peer for all
+      chunks received from $S$ and $P_1$ is its neighbor. $P_1$
+      includes an entry $P_1:[M_0]$ in its forwarding table because
+      $M_0$ is in the list of peers received from the splitter. After
+      that, when the chunk number 2 arrives to $M_0$ from $S$, an
+      entry $P_1:2$ is created in $P\{\}$ for that chunk, and this
+      entry is deleted when the chunk 2 is sent to $P_1$. Notice that
+      $P_1$ does not receive chunks 0 and 1 because these chunks
+      belong to an old (already played) section of the
+      stream.\label{fig:team_1}}
   \end{figure}
 
   \begin{figure}
-    \fig{300}{3cm}{team_2} \caption{$P_2$ joins the team (sending the
-      $[\mathtt{hello}]$'s not shown). $M_0$ and $P_1$ includes $P_2$
-      in their forwarding tables. The chunk 3 is received by $P_1$
-      which decides to send it to $P_2$. Chunk 3 remains as pending to
-      be sent to $M_0$ when the next chunk is received by $P_1$. $P_2$
-      is the origin peer for $M_0$ and $P_1$ because both of them are
-      in the list of peers that $P_2$ receives from
-      $S$. \label{fig:team_2}}
+    \imgw{300}{graphics/team_2.svg} \caption{$P_2$ joins the team
+      (sending the $[\mathtt{hello}]$'s not shown). $M_0$ and $P_1$
+      includes $P_2$ in their forwarding tables. The chunk 3 is
+      received by $P_1$ which decides to send it to $P_2$. Chunk 3
+      remains as pending to be sent to $M_0$ when the next chunk is
+      received by $P_1$. $P_2$ is the origin peer for $M_0$ and $P_1$
+      because both of them are in the list of peers that $P_2$
+      receives from $S$. \label{fig:team_2}}
   \end{figure}
 
   \begin{figure}
-    \fig{330}{3.3cm}{team_3} \caption{Chunk 4 is received by $P_2$
-      which relays it to $P_1$, what relays chunk 3 to
+    \imgw{330}{graphics/team_3.svg} \caption{Chunk 4 is received by
+      $P_2$ which relays it to $P_1$, what relays chunk 3 to
       $M_0$.\label{fig:team_3}}
   \end{figure}
 
   \begin{figure}
-    \fig{330}{3.3cm}{team_4} \caption{Chunk 5 is received by $M_0$
-      which relays it to $P_2$.\label{fig:team_4}}
+    \imgw{330}{graphics/team_4.svg} \caption{Chunk 5 is received by
+      $M_0$ which relays it to $P_2$.\label{fig:team_4}}
   \end{figure}
 
   \begin{figure*}
-    \fig{350}{3.5cm}{team_5}
+    \imgw{350}{graphics/team_5.svg}
   \end{figure*}
   
   \begin{figure*}
-    \fig{380}{3.8cm}{team_6}
+    \imgw{380}{graphics/team_6.svg}
   \end{figure*}
   
   \begin{figure*}
-    \fig{320}{3.2cm}{team_7}
+    \imgw{320}{graphics/team_7.svg}
   \end{figure*}
   
   \begin{figure*}
-    \fig{200}{2cm}{team_8}
+    \imgw{200}{graphics/team_8.svg}
   \end{figure*}
   
   \begin{figure*}
-    \fig{280}{2.8cm}{team_9}
+    \imgw{280}{graphics/team_9.svg}
   \end{figure*}
   
   \begin{figure*}
-    \fig{350}{3.5cm}{team_10}
+    \imgw{350}{graphics/team_10.svg}
   \end{figure*}
   
   \begin{figure*}
-    \fig{210}{2.1cm}{team_11}
+    \imgw{210}{graphics/team_11.svg}
   \end{figure*}
   
   \begin{figure*}
-    \fig{210}{2.1cm}{team_12}
+    \imgw{210}{graphics/team_12.svg}
   \end{figure*}
   
   \begin{figure*}
-    \fig{210}{2.1cm}{team_13}
+    \imgw{210}{graphics/team_13.svg}
   \end{figure*}
 
 \end{center}
@@ -235,7 +236,7 @@ efficient native IPM, where available.
 
 \section*{Lab 4: Scaling with P2PSP}
 \begin{center}
-  \fig{600}{5cm}{icecast-P2PSP}
+  \imgw{600}{graphics/icecast-P2PSP.svg}
 \end{center}
 \begin{itemize}
   \item Splitters can be connected to the Icecast tree as listeners.
