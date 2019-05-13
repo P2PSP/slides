@@ -6,7 +6,7 @@
  </head>
  <body>
   <div class="header center">
-    <img height="100px" src="images/p2pspsf.png">
+    <a href="https://p2psp.org"><img height="100px" src="images/p2pspsf.png"></a>
     <div class="title">
     	<h1>P2PSP Slides</h1>
 	<h2>Enjoy the P2PSP slides on the Web</h2>
